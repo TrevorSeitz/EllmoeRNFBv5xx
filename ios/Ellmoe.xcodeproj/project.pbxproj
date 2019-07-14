@@ -1419,7 +1419,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trevorseitz.ellmoe;
+				PRODUCT_BUNDLE_IDENTIFIER = ELLMOE;
 				PRODUCT_NAME = Ellmoe;
 				PROVISIONING_PROFILE_SPECIFIER = "ellmoe Distr";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1446,7 +1446,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.trevorseitz.ellmoe;
+				PRODUCT_BUNDLE_IDENTIFIER = ELLMOE;
 				PRODUCT_NAME = Ellmoe;
 				PROVISIONING_PROFILE_SPECIFIER = "ellmoe Distr";
 				VERSIONING_SYSTEM = "apple-generic";

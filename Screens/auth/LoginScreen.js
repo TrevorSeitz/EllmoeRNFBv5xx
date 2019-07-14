@@ -7,7 +7,8 @@ import {
   Button,
   AsyncStorage
 } from "react-native";
-import { firebase } from '@react-native-firebase/auth';
+import firebase from 'react-native-firebase';
+// import { firebase } from '@react-native-firebase/auth';
 // import { AsyncStorage } from 'react-native-community/async-storage'
 
 export default class LoginScreen extends React.Component {
@@ -33,17 +34,19 @@ export default class LoginScreen extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
+      .then(user => console.log("user???????????????: ", user))
       .then(user => this._storeData(user))
-      .then(user => console.log("user: ", user))
       .then(() => {
-        // if (this._ismounted) this.props.navigation.navigate("Map");
-        if (this._ismounted) this.props.navigation.navigate("TestScreen");
+        if (this._ismounted) {console.log("is Mounted!!!!!!!!!!!!!!")};
+      // .then(() => {
+      //   // if (this._ismounted) this.props.navigation.navigate("Map");
+      //   if (this._ismounted) this.props.navigation.navigate("TestScreen");
       })
       .catch(error => this.setState({ errorMessage: error.message }));
   };
 
   _storeData = async user => {
-    console.log(user.user.uid);
+    console.log("User uid: ", user.user.uid);
     try {
       await AsyncStorage.setItem("uid", user.user.uid);
     } catch (error) {
@@ -54,7 +57,7 @@ export default class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Login</Text>
+        <Text>Login Screen</Text>
         {this.state.errorMessage && (
           <Text style={{ color: "red" }}>{this.state.errorMessage}</Text>
         )}
@@ -62,6 +65,7 @@ export default class LoginScreen extends React.Component {
           style={styles.TextInput}
           autoCapitalize="none"
           placeholder="Email"
+          placeholderColor="black"
           onChangeText={email => this.setState({ email })}
           value={this.state.email}
         />
@@ -81,7 +85,7 @@ export default class LoginScreen extends React.Component {
 
         <Button
           title="Bypass this screen"
-          onPress={() => this.props.navigation.navigate("Dashboard")}
+          onPress={() => this.props.navigation.navigate("TestScreen")}
         />
       </View>
     );
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
   },
   TextInput: {
     height: 40,
-    width: "90%",
+    width: 200,
     borderColor: "gray",
     borderWidth: 1,
     marginTop: 8
