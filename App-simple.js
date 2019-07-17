@@ -1,14 +1,9 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, TextInput, View, ScrollView, Button } from 'react-native';
+import { StyleSheet, Platform, Image, Text, View, ScrollView, TextInput, Button, AsyncStorage } from 'react-native';
 import firebase from 'react-native-firebase';
-import { createAppContainer } from "react-navigation";
-//  navigation
-import LoginSwitchNavigator from "./navigation/switches/LoginSwitchNavigator";
-import AppSwitchNavigator from "./navigation/switches/AppSwitchNavigator";
-// Screens
+
 import TestScreen from './Screens/TestScreen'
 import LoginScreen from './Screens/auth/LoginScreen'
-// Constants
 import ApiKeys from "./constants/ApiKeys";
 
 export default class App extends React.Component {
@@ -32,6 +27,28 @@ export default class App extends React.Component {
     });
   }
 
+  _storeData = async () => {
+    const user = this.state.user._user.uid
+    try {
+      await AsyncStorage.setItem('user', user);
+    } catch (error) {
+      // Error saving data
+    }
+  };
+
+  _retrieveData = async () => {
+    console.log(this.state.user)
+    try {
+      const value = await AsyncStorage.getItem('user');
+      if (value !== null) {
+        // We have data!!
+        console.log(value);
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+  };
+
   componentWillUnmount() {
     // if (this.unsubscriber) {
       this.unsubscriber();
@@ -39,8 +56,11 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state.user) {
-      return <LoginScreen />;
+    if (this.state.user) {
+      this._storeData()
+
+    } else {
+        return <LoginScreen />;
     }
 
     return (
@@ -50,6 +70,11 @@ export default class App extends React.Component {
             placeholder={"User"}
             value={this.state.user.email}
             onChangeText={text => this.updateTextInput(text, "name")}
+          />
+          <Button
+            large
+            title="Get Data"
+            onPress={() => this._retrieveData()}
           />
       </View>
     );
