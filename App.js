@@ -16,16 +16,20 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
-    // TODO: You: Do firebase things
-    // const { user } = await firebase.auth().signInAnonymously();
-    // console.warn('User -> ', user.toJSON());
-
-    // await firebase.analytics().logEvent('foo', { bar: '123'});
-
     this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
     });
+    console.log("in App.js")
   }
+
+  _storeData = async () => {
+    console.log("App.js Set Data uid: ", this.state.user.uid);
+    try {
+      await AsyncStorage.setItem("uid", this.state.user.uid);
+    } catch (error) {
+      // Error saving data
+    }
+  };
 
   componentWillUnmount() {
     // if (this.unsubscriber) {
@@ -34,19 +38,14 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state.user) {
+    if (this.state.user) {
+      this._storeData()
+    } else {
       return <LoginScreen />;
     }
 
     return (
-      <View style={styles.container}>
-          <Text>There is a user</Text>
-          <TextInput
-            placeholder={"User"}
-            value={this.state.user.email}
-            onChangeText={text => this.updateTextInput(text, "name")}
-          />
-      </View>
+      <TestScreen />
     );
   }
 }

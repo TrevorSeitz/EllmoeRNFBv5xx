@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, AsyncStorage } from "react-native";
 
 export default class ProfileScreen extends React.Component {
   static navigationOptions = {
@@ -8,8 +8,25 @@ export default class ProfileScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      user: {},
+      uid: ''
+    };
+    this._retrieveData()
   }
+
+  _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.getItem("uid");
+      console.log("Value: ", value)
+      if (value !== null) {
+        this.setState({ uid: value });
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+    console.log(this.state)
+  };
 
 
   render() {
