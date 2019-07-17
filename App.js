@@ -27,31 +27,11 @@ export default class App extends React.Component {
     this._ismounted = false;
   }
 
-<<<<<<< HEAD
   componentDidMount() {
     this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
     });
     console.log("in App.js")
-=======
-  async componentDidMount() {
-    // TODO: You: Do firebase things
-    // const { user } = await firebase.auth().signInAnonymously();
-    // console.warn('User -> ', user.toJSON());
-
-    // await firebase.analytics().logEvent('foo', { bar: '123'});
-
-    this.authListener();
-    // this.getCurrentLocation()
-    this._ismounted = true;
-  }
-
-
-  getCurrentLocation = async () => {
-    const location = await GetCurrentLocation()
-    this.setState({ latitude: location.coords.latitude,
-                    longitude: location.coords.longitude})
->>>>>>> 69b6088ae4c7544b10c66f3927b6a9b4399aeb8f
   }
 
   _storeData = async () => {
@@ -67,14 +47,6 @@ export default class App extends React.Component {
     this._ismounted = false;
   }
 
-<<<<<<< HEAD
-  render() {
-    if (this.state.user) {
-      this._storeData()
-    } else {
-      return <LoginScreen />;
-    }
-=======
   authListener() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -91,19 +63,12 @@ export default class App extends React.Component {
         await AsyncStorage.multiSet([["uid", user.uid], ["latitude", this.state.latitude], ["longitude", this.state.longitude] ]);
     } catch (error) {}
   };
->>>>>>> 69b6088ae4c7544b10c66f3927b6a9b4399aeb8f
 
   render() {
     const user = this.state.user;
     // return (
     return (
-<<<<<<< HEAD
       <TestScreen />
-=======
-      <View style={styles.container}>
-        {!user ? <LoginContainer /> : <AppContainer />}
-      </View>
->>>>>>> 69b6088ae4c7544b10c66f3927b6a9b4399aeb8f
     );
   }
 }
