@@ -10,26 +10,35 @@ export default class ProfileScreen extends React.Component {
     super(props);
     this.state = {
       user: {},
-      uid: ''
+      uid: '',
+      currentLatitude:0,
+      currentLongitude: 0
     };
     this._retrieveData()
+    this._getKeys()
   }
 
   _retrieveData = async () => {
     try {
-      const value = await AsyncStorage.getItem("uid");
-      console.log("Value: ", value)
+      const value = await AsyncStorage.multiGet(["uid", "currentLatitude", "currentLongitude"]);
       if (value !== null) {
-        this.setState({ uid: value });
+        this.setState({ uid: value[0][1] });
+        this.setState({ currentLatitude: value[1][1] });
+        this.setState({ currentLongitude: value[2][1] });
       }
     } catch (error) {
       // Error retrieving data
     }
-    console.log(this.state)
   };
+
+  _getKeys = async () => {
+    const keys = await AsyncStorage.getAllKeys()
+    console.log("All Stored Keys: ", keys)
+  }
 
 
   render() {
+    console.log("This.state in TestScreen: ", this.state)
     return (
       <View style={styles.container}>
         <Text>TEST SCREEN</Text>

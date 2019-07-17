@@ -29,24 +29,15 @@ export default class LoginScreen extends React.Component {
   }
 
   handleLogin = () => {
-    console.log("inside handleLogin!!!!!!!!!~!")
     const { name, email, password } = this.state;
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(user => console.log("user???????????????: ", user))
       .then(user => this._storeData(user))
-      .then(() => {
-        if (this._ismounted) {console.log("is Mounted!!!!!!!!!!!!!!")};
-      // .then(() => {
-      //   // if (this._ismounted) this.props.navigation.navigate("Map");
-      //   if (this._ismounted) this.props.navigation.navigate("TestScreen");
-      })
       .catch(error => this.setState({ errorMessage: error.message }));
   };
 
   _storeData = async user => {
-    console.log("User uid: ", user.user.uid);
     try {
       await AsyncStorage.setItem("uid", user.user.uid);
     } catch (error) {
