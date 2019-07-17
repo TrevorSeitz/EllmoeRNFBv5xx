@@ -1,30 +1,21 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView, Button, Constants } from 'react-native';
-import { createAppContainer } from "react-navigation";
-import ApiKeys from "./constants/ApiKeys";
+import { StyleSheet, Platform, Image, Text, View, ScrollView, TextInput } from 'react-native';
 import firebase from 'react-native-firebase';
-// import { AsyncStorage } from 'react-native-community/async-storage'
-// Components
-// import GetCurrentLocation from './components/GetCurrentLocation'
-// Navigators
-import LoginSwitchNavigator from "./navigation/switches/LoginSwitchNavigator";
-import AppSwitchNavigator from "./navigation/switches/AppSwitchNavigator";
+//  Screens
+import TestScreen from './Screens/TestScreen'
+import LoginScreen from './Screens/auth/LoginScreen'
+//  Constants
+import ApiKeys from "./constants/ApiKeys";
+//  Components
+import GetCurrentLocation from './components/GetCurrentLocation'
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.unsubscriber = null
+  constructor() {
+    super();
+    this.unsubscriber = null;
     this.state = {
-      switchValue: false,
-      isLoadingComplete: false,
-      isAuthenticationReady: false,
-      isAuthenticated: false,
-      latatude: 0,
-      longitude: 0,
       user: null,
-      uid: ""
     };
-    this._ismounted = false;
   }
 
   componentDidMount() {
@@ -32,6 +23,15 @@ export default class App extends React.Component {
       this.setState({ user });
     });
     console.log("in App.js")
+    this.getCurrentLocation()
+  }
+
+  getCurrentLocation = async () => {
+    console.log("Trying to get current location")
+    const location = await GetCurrentLocation()
+    // this.setState({ latitude: location.coords.latitude,
+    //                 longitude: location.coords.longitude})
+    console.log("Current Location: ", location)
   }
 
   _storeData = async () => {
@@ -44,45 +44,29 @@ export default class App extends React.Component {
   };
 
   componentWillUnmount() {
-    this._ismounted = false;
+    // if (this.unsubscriber) {
+      this.unsubscriber();
+    // }
   }
-
-  authListener() {
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this._storeData(user);
-        this.setState({ user, uid: user.uid });
-      } else {
-        this.setState({ user: null });
-      }
-    });
-  }
-
-  _storeData = async user => {
-    try {
-        await AsyncStorage.multiSet([["uid", user.uid], ["latitude", this.state.latitude], ["longitude", this.state.longitude] ]);
-    } catch (error) {}
-  };
 
   render() {
-    const user = this.state.user;
-    // return (
+    if (this.state.user) {
+      this._storeData()
+    } else {
+      return <LoginScreen />;
+    }
+
     return (
       <TestScreen />
     );
   }
 }
 
-const AppContainer = createAppContainer(AppSwitchNavigator);
-const LoginContainer = createAppContainer(LoginSwitchNavigator);
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    // paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
   },
-
 });
