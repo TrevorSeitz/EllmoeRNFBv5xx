@@ -26,8 +26,11 @@ export default class Map extends React.Component {
     super(props);
     this.state = {
       user: {},
-      uid: this._retrieveData
+      uid: '',
+      currentLatitude:0,
+      currentLongitude: 0
     };
+    this._retrieveData()
   }
 
   componentWillMount() {
@@ -44,34 +47,25 @@ export default class Map extends React.Component {
   _retrieveData = async () => {
     try {
       AsyncStorage.getItem('uid')
-      // const value = await AsyncStorage.getItem('uid')
-
-      // this.setState(previousState => (
-      //   {
-      //     uid: AsyncStorage.getItem('uid')
-      //   }
-      // ))
 
       this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
 
     } catch (error) {}
 
-  // const value = await AsyncStorage.getItem("uid");
-  // value = [["hello"], ["goodbye"], ["what?"]]
-  // console.log("??????????????Value ###1: ", value )
-  // value = await AsyncStorage.multiGet(["uid", "latitude", "longitude"])
-  // console.log("??????????????Value ###2!!!: ", value )
-  // if (value !== null) {
-  //   this.setState({ uid: value[0][1],
-  //                   latitude: parseFloat(value[1][1]),
-  //                   longitude: parseFloat(value[2][1])
-  //   })
-  //   if(this.props.navigation.state.params) {
-  //     const newlocation = this.props.navigation.state.params
-  //     this.setState({latitude: parseFloat(this.props.navigation.state.params.locationLatitude, 5),
-  //                   longitude: parseFloat(this.props.navigation.state.params.locationLongitude, 5)})
-  //     console.log("this.state.locationLatitude", this.state.locationLatitude)
-  //   }
+  };
+
+  _retrieveData = async () => {
+    try {
+      const value = await AsyncStorage.multiGet(["uid", "currentLatitude", "currentLongitude"]);
+      if (value !== null) {
+        this.setState({ uid: value[0][1] });
+        this.setState({ currentLatitude: value[1][1] });
+        this.setState({ currentLongitude: value[2][1] });
+      }
+      this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
+    } catch (error) {
+      // Error retrieving data
+    }
   };
 
 
