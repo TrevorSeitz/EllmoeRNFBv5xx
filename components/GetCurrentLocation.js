@@ -5,7 +5,7 @@ import React from "react";
 import { Location, Constants, Permissions, AsyncStorage } from 'react-native'
 // import { AsyncStorage } from 'react-native-community/async-storage'
 
-const GetCurrentLocation = async () => {
+const GetCurrentLocation = () => {
   console.log("inside Get Current Location")
   navigator.geolocation.getCurrentPosition(
     position => {
@@ -18,13 +18,9 @@ const GetCurrentLocation = async () => {
     error => Alert.alert(error.message),
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
   );
-
-    let currentLocation = await Location.getCurrentPositionAsync({});
-  }
+}
 
   _storeData = async (location) => {
-    console.log("inside storedate in current position")
-    console.log(location)
     try {
         await AsyncStorage.multiSet([ ["currentLatitude", location.latitude], ["currentLongitude", location.longitude] ]);
     } catch (error) {}

@@ -3,6 +3,7 @@ import { StyleSheet, Platform, Image, Text, View, ScrollView, TextInput } from '
 import firebase from 'react-native-firebase';
 //  Screens
 import TestScreen from './Screens/TestScreen'
+import HomeScreen from './Screens/HomeScreen'
 import LoginScreen from './Screens/auth/LoginScreen'
 //  Constants
 import ApiKeys from "./constants/ApiKeys";
@@ -57,7 +58,7 @@ export default class App extends React.Component {
     }
 
     return (
-      <TestScreen />
+      <HomeScreen />
     );
   }
 }

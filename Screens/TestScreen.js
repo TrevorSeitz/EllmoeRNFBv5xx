@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, AsyncStorage } from "react-native";
-import MapView from 'react-native-maps'
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 export default class ProfileScreen extends React.Component {
   static navigationOptions = {
@@ -39,6 +39,11 @@ export default class ProfileScreen extends React.Component {
       <View style={styles.container}>
         <Text>TEST SCREEN</Text>
         <MapView
+          provider={PROVIDER_GOOGLE}
+          showsUserLocation={true}
+          showsMyLocationButton={true}
+          showsCompass={true}
+          showsScale={true}
           style={styles.map}
           region={{
             // latitude: 42.882004,
