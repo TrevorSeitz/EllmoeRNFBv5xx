@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView, AsyncStorage, TextInput } from 'react-native';
 import firebase from 'react-native-firebase';
+import { createAppContainer } from "react-navigation";
+// Navigators
+import LoginSwitchNavigator from "./navigation/switches/LoginSwitchNavigator";
+import AppSwitchNavigator from "./navigation/switches/AppSwitchNavigator";
 //  Screens
 import TestScreen from './Screens/TestScreen'
 import HomeScreen from './Screens/HomeScreen'
