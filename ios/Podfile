@@ -6,6 +6,26 @@ target 'Ellmoe' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 
+  pod 'React', :path => '../node_modules/react-native', :subspecs => [
+    'DevSupport',
+    'Core',
+    'RCTAnimation',
+    'RCTImage',
+    'RCTLinkingIOS',
+    'RCTSettings',
+    'RCTText'
+  ]
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'DoubleConversion',
+    :podspec => "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec",
+    :inhibit_warnings => true
+  pod 'Folly',
+    :podspec => "../node_modules/react-native/third-party-podspecs/Folly.podspec",
+    :inhibit_warnings => true
+  pod 'glog',
+    :podspec => "../node_modules/react-native/third-party-podspecs/glog.podspec",
+    :inhibit_warnings => true
+
   # Required by RNFirebase
   pod 'Firebase/Core', '~> 6.3.0'
 
@@ -23,9 +43,20 @@ target 'Ellmoe' do
   pod 'Fabric', '~> 1.10.2'
   pod 'Crashlytics', '~> 3.13.2'
 
+  pod 'GoogleMaps'
+
+  pod 'react-native-maps', :path => '../node_modules/react-native-maps'
 
 end
-# 
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == "React"
+      target.remove_from_project
+    end
+  end
+end
+#
 # target 'Ellmoe-tvOS' do
 #   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
 #   # use_frameworks!

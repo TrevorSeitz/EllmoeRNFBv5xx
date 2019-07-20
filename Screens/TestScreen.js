@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, AsyncStorage } from "react-native";
+import MapView from 'react-native-maps'
 
 export default class ProfileScreen extends React.Component {
   static navigationOptions = {
@@ -15,7 +16,6 @@ export default class ProfileScreen extends React.Component {
       currentLongitude: 0
     };
     this._retrieveData()
-    this._getKeys()
   }
 
   _retrieveData = async () => {
@@ -31,17 +31,25 @@ export default class ProfileScreen extends React.Component {
     }
   };
 
-  _getKeys = async () => {
-    const keys = await AsyncStorage.getAllKeys()
-    console.log("All Stored Keys: ", keys)
-  }
-
-
   render() {
     console.log("This.state in TestScreen: ", this.state)
+    const currentLatitude = this.state.currentLatitude
+    const currentLongitude = this.state.currentLongitude
     return (
       <View style={styles.container}>
         <Text>TEST SCREEN</Text>
+        <MapView
+          style={styles.map}
+          region={{
+            // latitude: 42.882004,
+            // longitude: 74.582748,
+            latitude: currentLatitude,
+            longitude: currentLongitude,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421
+          }}
+          showsUserLocation={true}
+        />
       </View>
     );
   }
@@ -50,8 +58,11 @@ export default class ProfileScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: 'flex-end',
       alignItems: 'center',
       backgroundColor: '#F5FCFF',
+    },
+    map: {
+      ...StyleSheet.absoluteFillObject,
     },
 });
