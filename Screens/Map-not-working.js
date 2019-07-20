@@ -11,6 +11,7 @@ import {
   TouchableOpacity,
   Permissions,
   Location,
+  AsyncStorage,
   Constants
 } from "react-native";
 // import { Marker } from "expo";
@@ -19,7 +20,7 @@ import {
 // import Constants from 'expo-constants'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import Icon from 'react-native-vector-icons/Ionicons'
-import { AsyncStorage } from '@react-native-community/async-storage'
+// import { AsyncStorage } from '@react-native-community/async-storage'
 
 export default class Map extends React.Component {
   constructor(props) {

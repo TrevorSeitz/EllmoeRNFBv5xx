@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView, TextInput } from 'react-native';
+import { StyleSheet, Platform, Image, Text, View, ScrollView, AsyncStorage, TextInput } from 'react-native';
 import firebase from 'react-native-firebase';
 //  Screens
 import TestScreen from './Screens/TestScreen'

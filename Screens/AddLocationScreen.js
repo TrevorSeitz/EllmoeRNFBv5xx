@@ -12,13 +12,14 @@ import {
   MediaLibrary,
   ImagePicker,
   Permissions,
+  AsyncStorage,
   Location
 } from "react-native";
 import { TextInput } from "react-native-paper";
 import { Button } from "react-native-elements";
 import * as firebase from 'react-native-firebase';
 // import * as firestore from '@react-native-firebase/firestore';
-import { AsyncStorage } from '@react-native-community/async-storage'
+// import { AsyncStorage } from '@react-native-community/async-storage'
 //import firestore from "firebase/firestore";
 // import { Font } from "expo";
 // import * as MediaLibrary from 'expo-media-library'
