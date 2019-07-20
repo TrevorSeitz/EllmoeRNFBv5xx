@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView, AsyncStorage, TextInput } from 'react-native';
+import { StyleSheet, Platform, Image, Text, View, ScrollView, AsyncStorage, Constants, TextInput } from 'react-native';
 import firebase from 'react-native-firebase';
 import { createAppContainer } from "react-navigation";
 // Navigators
@@ -54,24 +54,38 @@ export default class App extends React.Component {
     // }
   }
 
-  render() {
-    if (this.state.user) {
-      this._storeData()
-    } else {
-      return <LoginScreen />;
-    }
-
-    return (
-      <HomeScreen />
-    );
-  }
+//   render() {
+//     if (this.state.user) {
+//       this._storeData()
+//     } else {
+//       return <LoginScreen />;
+//     }
+//
+//     return (
+//       <HomeScreen />
+//     );
+//   }
+// }
+render() {
+  const user = this.state.user;
+  // return (
+  return (
+    <View style={styles.container}>
+      {!user ? <LoginContainer /> : <AppContainer />}
+    </View>
+  );
 }
+}
+
+const AppContainer = createAppContainer(AppSwitchNavigator);
+const LoginContainer = createAppContainer(LoginSwitchNavigator);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    // paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8
   },
 });
