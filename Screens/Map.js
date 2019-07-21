@@ -67,29 +67,17 @@ export default class Map extends React.Component {
     try {
       // const value = await AsyncStorage.getItem("uid");
       const value = await AsyncStorage.multiGet(["uid", "currentLatitude", "currentLongitude"])
+      console.log("Map data: ", value)
       if (value !== null) {
         this.setState({ uid: value[0][1],
                         latitude: parseFloat(value[1][1]),
                         longitude: parseFloat(value[2][1])
         })
         if(this.props.navigation.state.params) {
-          console.log("in the if statement ")
           const newlocation = this.props.navigation.state.params
           this.setState({latitude: parseFloat(this.props.navigation.state.params.locationLatitude, 5),
                         longitude: parseFloat(this.props.navigation.state.params.locationLongitude, 5)})
-          console.log("new location this.state.latitude", this.state.latitude)
-        }
-        // this.setState({ uid: value[0][1] })
-        // if(this.props.navigation.state.params) {
-        //   const newLocation = this.props.navigation.state.params
-        //   this.setState({latitude: parseFloat(newLocation.locationLatitude, 5),
-        //                 longitude: parseFloat(newLocation.locationLongitude, 5)})
-        //   console.log("this.state.locationLatitude", this.state.latitude)
-        // } else {
-        //   this.setState({ latitude: parseFloat(value[1][1]),
-        //                   longitude: parseFloat(value[2][1])
-        //   })
-        // }
+          console.log("this.state.locationLatitude", this.state.locationLatitude)
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
       }
     } catch (error) {
@@ -156,6 +144,7 @@ export default class Map extends React.Component {
   // };
 
   goToLoc = location => {
+    console.log("go to location: ", location)
     this.props.navigation.push("Details", {
       key: `${JSON.stringify(location.id)}`
     });

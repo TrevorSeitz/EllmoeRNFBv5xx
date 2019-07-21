@@ -69,12 +69,20 @@ export default class LocationDetailsScreen extends React.Component {
   }
 
   goToMap = () => {
-    console.log("this.state.location: ", this.state.location.latitude)
+    console.log("this.state.location: ", this.state.location)
     this.props.navigation.push("Map", { //this is almost right...
       locationLatitude: this.state.location.latitude,
       locationLongitude: this.state.location.longitude,
     })
   }
+
+//   goToMap = () => {
+//   console.log("this.state.location: ", this.state.location.latitude)
+//   this.props.navigation.push("Map", { //this is almost right...
+//     locationLatitude: this.state.location.latitude,
+//     locationLongitude: this.state.location.longitude,
+//   })
+// }
 
   confirmDelete = () => {
     Alert.alert(
