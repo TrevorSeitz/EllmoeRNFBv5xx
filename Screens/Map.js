@@ -78,6 +78,7 @@ export default class Map extends React.Component {
           this.setState({latitude: parseFloat(this.props.navigation.state.params.locationLatitude, 5),
                         longitude: parseFloat(this.props.navigation.state.params.locationLongitude, 5)})
           console.log("this.state.locationLatitude", this.state.locationLatitude)
+        }
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
       }
     } catch (error) {
