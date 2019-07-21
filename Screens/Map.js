@@ -33,11 +33,12 @@ export default class Map extends React.Component {
       location: null,
       locations: [],
       checkLocation: {},
-      currentLatitude: 0,
-      currentLongitude: 0,
+      latitude: 0,
+      longitude: 0,
       errorMessage: null
     };
     this.unsubscribe = null;
+    console.log("Map props: ", this.props)
   }
 
   ref = firebase.firestore().collection("locations");
@@ -68,14 +69,26 @@ export default class Map extends React.Component {
       const value = await AsyncStorage.multiGet(["uid", "currentLatitude", "currentLongitude"])
       if (value !== null) {
         this.setState({ uid: value[0][1],
-                        currentLatitude: parseFloat(value[1][1]),
-                        currentLongitude: parseFloat(value[2][1])
+                        latitude: parseFloat(value[1][1]),
+                        longitude: parseFloat(value[2][1])
         })
+        if(this.props.navigation.state.params) {
+          console.log("in the if statement ")
+          const newlocation = this.props.navigation.state.params
+          this.setState({latitude: parseFloat(this.props.navigation.state.params.locationLatitude, 5),
+                        longitude: parseFloat(this.props.navigation.state.params.locationLongitude, 5)})
+          console.log("new location this.state.latitude", this.state.latitude)
+        }
+        // this.setState({ uid: value[0][1] })
         // if(this.props.navigation.state.params) {
-        //   const newlocation = this.props.navigation.state.params
-        //   this.setState({latitude: parseFloat(this.props.navigation.state.params.locationLatitude, 5),
-        //                 longitude: parseFloat(this.props.navigation.state.params.locationLongitude, 5)})
-        //   console.log("this.state.locationLatitude", this.state.locationLatitude)
+        //   const newLocation = this.props.navigation.state.params
+        //   this.setState({latitude: parseFloat(newLocation.locationLatitude, 5),
+        //                 longitude: parseFloat(newLocation.locationLongitude, 5)})
+        //   console.log("this.state.locationLatitude", this.state.latitude)
+        // } else {
+        //   this.setState({ latitude: parseFloat(value[1][1]),
+        //                   longitude: parseFloat(value[2][1])
+        //   })
         // }
         this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
       }
@@ -149,8 +162,8 @@ export default class Map extends React.Component {
   };
 
   render() {
-    let lat = parseFloat(this.state.currentLatitude, 5);
-    let long = parseFloat(this.state.currentLongitude, 5);
+    let lat = parseFloat(this.state.latitude, 5);
+    let long = parseFloat(this.state.longitude, 5);
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
     }
