@@ -2,8 +2,8 @@ import React from "react";
 // import * as Permissions from 'expo-permissions'
 // import * as Location from 'expo-location'
 // import Constants from 'expo-constants'
-import { Location, Constants, Permissions, AsyncStorage } from 'react-native'
-// import { AsyncStorage } from 'react-native-community/async-storage'
+import { Location, Constants, Permissions } from 'react-native'
+import { AsyncStorage } from '@react-native-community/async-storage'
 
 const GetCurrentLocation = () => {
   console.log("inside Get Current Location")

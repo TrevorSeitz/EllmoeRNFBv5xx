@@ -7,7 +7,7 @@ import {
   Text,
   View,
   StyleSheet,
-  AsyncStorage,
+  // AsyncStorage,
   Image,
   TouchableOpacity,
   Permissions,
@@ -20,7 +20,7 @@ import {
 // import Constants from 'expo-constants'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import Icon from 'react-native-vector-icons/Ionicons'
-// import { AsyncStorage } from 'react-native-community/async-storage'
+import { AsyncStorage } from '@react-native-community/async-storage'
 
 // import GetCurrentLocation from '../components/GetCurrentLocation'
 

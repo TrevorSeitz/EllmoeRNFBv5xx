@@ -219,6 +219,8 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
+  - RNCAsyncStorage (1.5.1):
+    - React
   - RNVectorIcons (6.6.0):
     - React
   - yoga (0.59.9.React)
@@ -248,6 +250,7 @@ DEPENDENCIES:
   - React/RCTLinkingIOS (from `../node_modules/react-native`)
   - React/RCTSettings (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
+  - "RNCAsyncStorage (from `../node_modules/@react-native-community/async-storage`)"
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -295,6 +298,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-maps:
     :path: "../node_modules/react-native-maps"
+  RNCAsyncStorage:
+    :path: "../node_modules/@react-native-community/async-storage"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   yoga:
@@ -336,9 +341,10 @@ SPEC CHECKSUMS:
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-maps: 190c02ca533fddac5bb49cf17bdece3644612107
+  RNCAsyncStorage: bb4ff063ad5682f6b0041908b11845feb2b6179a
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 9abf1fb7310e1ed506936ec8d306c08680eddfe3
+PODFILE CHECKSUM: f1e4b6a08f667a64019f6c09678e060927d0d3a2
 
 COCOAPODS: 1.7.5

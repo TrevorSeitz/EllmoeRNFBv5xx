@@ -1,6 +1,7 @@
 import React from "react";
-import { StyleSheet, Text, View, AsyncStorage } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
+import { AsyncStorage } from '@react-native-community/async-storage'
 
 export default class ProfileScreen extends React.Component {
   static navigationOptions = {

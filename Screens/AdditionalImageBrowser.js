@@ -9,11 +9,11 @@ import {
   CameraRoll,
   FlatList,
   Dimensions,
-  AsyncStorage,
+  // AsyncStorage,
   Location
 } from "react-native";
 import { Button } from "react-native-elements";
-// import { AsyncStorage } from '@react-native-community/async-storage'
+import { AsyncStorage } from '@react-native-community/async-storage'
 import ImageTile from "./ImageTile";
 import * as firebase from 'react-native-firebase';
 // import * as firestore from '@react-native-firebase/firestore';
