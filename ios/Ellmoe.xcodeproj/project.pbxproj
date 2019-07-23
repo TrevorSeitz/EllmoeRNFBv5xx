@@ -27,7 +27,6 @@
 		27BA9FBCD92E40C2AAD5C515 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 83F33AD4AE204E38B8DE40A5 /* SimpleLineIcons.ttf */; };
 		288083ACBCDD494D887300DA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C1A5022B296488E90F5C449 /* Zocial.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4C21E0B4AEC006451C7 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		2D02E4C31E0B4AEC006451C7 /* libRCTImage-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E841DF850E9000B6D8A /* libRCTImage-tvOS.a */; };
@@ -80,6 +79,7 @@
 		C352839222E22256009B3171 /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837922E22256009B3171 /* AIRGMSMarker.m */; };
 		C352839322E22256009B3171 /* AIRGoogleMapCalloutSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837A22E22256009B3171 /* AIRGoogleMapCalloutSubview.m */; };
 		C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C352853122E3A684009B3171 /* libRNGestureHandler.a */; };
+		C3D3E86422E63886008146CB /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D3E86322E63886008146CB /* Images-2.xcassets */; };
 		C999F3D105A241CB9910E48E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96BDB841E05C4E0F86613381 /* MaterialIcons.ttf */; };
 		CAF842E7424343C7AC21B0EC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F189ED1891641C3A8014653 /* FontAwesome.ttf */; };
 		CE8B281FBCAD4DE79DEAB65E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 902904E2E0E346B08B5294CF /* Ionicons.ttf */; };
@@ -492,6 +492,7 @@
 		C352837922E22256009B3171 /* AIRGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSMarker.m; sourceTree = "<group>"; };
 		C352837A22E22256009B3171 /* AIRGoogleMapCalloutSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapCalloutSubview.m; sourceTree = "<group>"; };
 		C352850422E3A682009B3171 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		C3D3E86322E63886008146CB /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "Ellmoe/Images-2.xcassets"; sourceTree = "<group>"; };
 		C97DD56AE46E45398AF70E2E /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		D78BC0899B3C49FD868A048A /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		D8E13BB553BB18534EEFFDDE /* Pods-Ellmoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ellmoe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ellmoe/Pods-Ellmoe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -659,6 +660,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				C3D3E86322E63886008146CB /* Images-2.xcassets */,
 			);
 			name = Ellmoe;
 			sourceTree = "<group>";
@@ -1410,6 +1412,7 @@
 				9A81893103E449D5B1F320D8 /* EvilIcons.ttf in Resources */,
 				3EBB66E71BA547D1A6854D60 /* Feather.ttf in Resources */,
 				CAF842E7424343C7AC21B0EC /* FontAwesome.ttf in Resources */,
+				C3D3E86422E63886008146CB /* Images-2.xcassets in Resources */,
 				7FFDB033A425462DA048686E /* FontAwesome5_Brands.ttf in Resources */,
 				8578F05895A84077899A86DE /* FontAwesome5_Regular.ttf in Resources */,
 				90B9A7D4BA6D40538CC40850 /* FontAwesome5_Solid.ttf in Resources */,
@@ -1428,7 +1431,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1718,6 +1720,7 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = Ellmoe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1757,6 +1760,7 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
 				);
 				INFOPLIST_FILE = Ellmoe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

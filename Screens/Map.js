@@ -30,7 +30,7 @@ export default class Map extends React.Component {
     this.state = {
       uid: "",
       user: {},
-      location: null,
+      location: "",
       locations: [],
       checkLocation: {},
       latitude: 0,
@@ -53,15 +53,6 @@ export default class Map extends React.Component {
     }
     this._retrieveData()
   }
-
-  // componentDidMount() {
-    // this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
-    // this._retrieveData()
-    // this._getLocationAsync()
-    // .then(
-    //   () => (this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate))
-    // );
-  // }
 
   _retrieveData = async () => {
     try {

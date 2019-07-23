@@ -28,7 +28,7 @@ export default class App extends React.Component {
       this.setState({ user });
     });
     console.log("in App.js")
-    this.getCurrentLocation()
+    // this.getCurrentLocation()
   }
 
   getCurrentLocation = async () => {
@@ -54,19 +54,8 @@ export default class App extends React.Component {
     // }
   }
 
-//   render() {
-//     if (this.state.user) {
-//       this._storeData()
-//     } else {
-//       return <LoginScreen />;
-//     }
-//
-//     return (
-//       <HomeScreen />
-//     );
-//   }
-// }
 render() {
+  this.getCurrentLocation()
   const user = this.state.user;
   // return (
   return (
