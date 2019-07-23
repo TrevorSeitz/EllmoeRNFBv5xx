@@ -18,17 +18,22 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.unsubscriber = null;
+    this._isMounted = false;
     this.state = {
       user: null,
     };
   }
 
+  componentWillMount() {
+    this.getCurrentLocation()
+  }
+
   componentDidMount() {
     this.unsubscriber = firebase.auth().onAuthStateChanged((user) => {
       this.setState({ user });
+      this._isMounted = true ;
     });
     console.log("in App.js")
-    // this.getCurrentLocation()
   }
 
   getCurrentLocation = async () => {
@@ -49,13 +54,15 @@ export default class App extends React.Component {
   };
 
   componentWillUnmount() {
-    // if (this.unsubscriber) {
+    if (this.unsubscriber) {
       this.unsubscriber();
-    // }
+    }
+    this._isMounted = false
+
   }
 
 render() {
-  this.getCurrentLocation()
+  // this.getCurrentLocation()
   const user = this.state.user;
   // return (
   return (

@@ -27,6 +27,8 @@ import Icon from 'react-native-vector-icons/Ionicons'
 export default class Map extends React.Component {
   constructor(props) {
     super(props);
+    this._isMounted = false;
+    this.unsubscribe = null;
     this.state = {
       uid: "",
       user: {},
@@ -37,8 +39,6 @@ export default class Map extends React.Component {
       longitude: 0,
       errorMessage: null
     };
-    this.unsubscribe = null;
-    console.log("Map props: ", this.props)
   }
 
   ref = firebase.firestore().collection("locations");
@@ -52,29 +52,35 @@ export default class Map extends React.Component {
       });
     }
     this._retrieveData()
+    this.onCollectionUpdate()
+    this._isMounted = true;
   }
 
   _retrieveData = async () => {
-    try {
+    // try {
       // const value = await AsyncStorage.getItem("uid");
+      const newLocation = this.props.navigation.state.params
       const value = await AsyncStorage.multiGet(["uid", "currentLatitude", "currentLongitude"])
-      console.log("Map data: ", value)
-      if (value !== null) {
-        this.setState({ uid: value[0][1],
-                        latitude: parseFloat(value[1][1]),
-                        longitude: parseFloat(value[2][1])
-        })
-        if(this.props.navigation.state.params) {
-          const newlocation = this.props.navigation.state.params
-          this.setState({latitude: parseFloat(this.props.navigation.state.params.locationLatitude, 5),
-                        longitude: parseFloat(this.props.navigation.state.params.locationLongitude, 5)})
-          console.log("this.state.locationLatitude", this.state.locationLatitude)
-        }
-        this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
+      this.setState({ uid: value[0][1],
+                      latitude: parseFloat(value[1][1]),
+                      longitude: parseFloat(value[2][1])
+      })
+      this.onCollectionUpdate()
+      console.log("newLocation = ", newLocation)
+      if(typeof newLocation == undefined){
+        console.log("we should not be here")
+        this.setState({latitude: parseFloat(newLocation.locationLatitude, 5),
+                      longitude: parseFloat(newLocation.locationLongitude, 5)})
+        // console.log("this.state.locationLatitude", this.state.locationLatitude)
       }
-    } catch (error) {
-      // Error retrieving data}
-    }
+      console.log("Map Data: ", value)
+      console.log("Map State", this.state)
+      // put unsubscribe out side }
+      // this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
+    //   }
+    // } catch (error) {
+    //   // Error retrieving data}
+    // }
   }
 
   _storeData = async () => {
@@ -106,6 +112,20 @@ export default class Map extends React.Component {
           const imageFileName = doc.data().imageFileName;
           const imageFileLocation = doc.data().imageFileLocation;
           locations.push({
+            // id: doc.id,
+            // uid: doc.data().uid,
+            // name: doc.data().name,
+            // project: doc.data().project,
+            // latitude: doc.data().latitude,
+            // longitude: doc.data().longitude,
+            // contactName: doc.data().contactName,
+            // contactPhone: doc.data().contactPhone,
+            // email: doc.data().email,
+            // description: doc.data().description,
+            // photosLocations: doc.data().photosLocations,
+            // image: doc.data().image,
+            // imageFileName: doc.data().imageFileName,
+            // imageFileLocation: doc.data().imageFileLocation
             id: id,
             uid: uid,
             name: name,
@@ -126,6 +146,8 @@ export default class Map extends React.Component {
       .then(() => {
         this.setState({ locations });
       });
+
+      console.log("Map State locations", this.state.locations)
   };
 
 // for use with manually added "current position" button
@@ -141,6 +163,11 @@ export default class Map extends React.Component {
       key: `${JSON.stringify(location.id)}`
     });
   };
+
+  componentWillUnmount = () => {
+    this.unsubscriber();
+    this._isMounted = false;
+  }
 
   render() {
     let lat = parseFloat(this.state.latitude, 5);

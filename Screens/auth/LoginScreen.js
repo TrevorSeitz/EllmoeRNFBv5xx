@@ -37,6 +37,10 @@ export default class LoginScreen extends React.Component {
       .catch(error => this.setState({ errorMessage: error.message }));
   };
 
+  handleNavToSignup = () => {
+    this.props.navigation.navigate("Signup")
+  }
+
   _storeData = async user => {
     try {
       await AsyncStorage.setItem("uid", user.user.uid);
@@ -71,12 +75,7 @@ export default class LoginScreen extends React.Component {
         <Button title="Login" onPress={this.handleLogin} />
         <Button
           title="Don't have an account? Sign Up"
-          onPress={() => this.props.navigation.navigate("Signup")}
-        />
-
-        <Button
-          title="Bypass this screen"
-          onPress={() => this.props.navigation.navigate("TestScreen")}
+          onPress={this.handleNavToSignup}
         />
       </View>
     );
