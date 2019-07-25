@@ -10,6 +10,7 @@ export default class MainImagePicker extends React.Component {
       filePath: {},
     };
   }
+
   chooseFile = () => {
     console.log("inside Choose File")
     var options = {
@@ -42,8 +43,12 @@ export default class MainImagePicker extends React.Component {
           filePath: source.uri,
         });
       }
-      let result = AsyncStorage.multiSet([["filePath", response.uri], ["latitude", response.latitude], ["longitude", response.longitude]]);
-      console.log("last line in Image Picker", response.latitude)
+      let filePath = response.uri
+      let latitude = response.latitude
+      let longitude = response.longitude
+      let fileName = response.fileName
+      let result = AsyncStorage.multiSet([ [ "filePath", filePath ], [ "latitude", latitude ], [ "longitude",  longitude ], ["fileName", fileName] ]);
+      console.log("last line in Image Picker", response)
       this.checkForFilepath()
     });
   };
@@ -60,6 +65,15 @@ export default class MainImagePicker extends React.Component {
       this.props.navigation.navigate("AddLocationScreen")
     }
   }
+
+  // render() {
+  //   this.chooseFile()
+  //   return(
+  //     <View>
+  //       this.chooseFile()
+  //     </View>
+  //   )
+  // }
 
   render() {
     return (

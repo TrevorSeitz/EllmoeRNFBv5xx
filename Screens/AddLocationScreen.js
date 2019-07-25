@@ -35,7 +35,7 @@ export default class AddLocationScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: this._retrieveData(),
+      uid: "this didn't change",
       name: "",
       project: "",
       latitude: "",
@@ -49,27 +49,34 @@ export default class AddLocationScreen extends React.Component {
       imageFileLocation: "",
       photos: [],
       photosLocations: [],
-      filePath: '',
+      filePath: "",
       imageBrowserOpen: false,
       isLoading: false
     };
+    console.log("Inside Add Location Screen")
+    this._retrieveData()
     this.ref = firebase.firestore().collection("locations");
     // this.ref = firestore.collection("locations");
     var storage = firebase.storage();
     var storageRef = storage.ref();
+    console.log("after storage ref - ",  this.state.uid)
   }
 
   _retrieveData = async () => {
     try {
-      const value = await AsyncStorage.multiGet("uid", "filePath", "latitude", "longitude");
+      const value = await AsyncStorage.multiGet(["uid", "filePath", "latitude", "longitude", 'fileName']);
+      console.log("retrieved value:", value)
       if (value !== null) {
         this.setState({ uid: value[0][1],
                         filePath: value[1][1],
                         latitude: value[2][1],
-                        longitude: value[3][1]
+                        longitude: value[3][1],
+                        imageFileName: value[4][1]
                         });
       }
-      console.log("after get: ", this.state.latitude)
+
+
+      console.log("after get: ", this.state.filePath)
     } catch (error) {}
   };
 
@@ -323,7 +330,7 @@ export default class AddLocationScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.photoList}>
-          <Image style={styles.image} source={{ uri: this.state.image.uri }} />
+          <Image style={styles.image} source={{ uri: this.state.filePath }} />
           {this.state.photos.map((item, i) => this.renderImage(item, i))}
         </View>
         <View style={styles.buttonContainer}>
@@ -343,21 +350,31 @@ export default class AddLocationScreen extends React.Component {
   };
 
   renderGetMainImage = () => {
-
+    // const mainPhoto = this.state.filePath
     return (
-      <View>
-        <Text style={styles.buttonText}>Add Main Photo</Text>
-        <View><MainImagePicker /></View>
-        <View style={styles.buttonContainer}>
-          <View style={{ flex: 1 }}>
-            <Button3 onPress={this.selectPicture}>Choose from Camera Roll</Button3>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Button3 onPress={this.takePicture}>Take Picture</Button3>
-          </View>
-        </View>
-      </View>
-    );
+      <View style={styles.container}>
+        {this.state.filePath ?
+         <Image source={{uri: this.state.filePath}} style={{width: 130, height:110}}/>
+         :
+         null
+        }
+       </View>
+    )
+
+    // return (
+    //   <View>
+    //     <Text style={styles.buttonText}>Add Main Photo</Text>
+    //     <View><MainImagePicker /></View>
+    //     <View style={styles.buttonContainer}>
+    //       <View style={{ flex: 1 }}>
+    //         <Button3 onPress={this.selectPicture}>Choose from Camera Roll</Button3>
+    //       </View>
+    //       <View style={{ flex: 1 }}>
+    //         <Button3 onPress={this.takePicture}>Take Picture</Button3>
+    //       </View>
+    //     </View>
+    //   </View>
+    // );
   };
 
   render() {
@@ -370,11 +387,11 @@ export default class AddLocationScreen extends React.Component {
       );
     }
 
-    if (this.state.image.uri && this.state.name) {
+    // if (this.state.image.uri && this.state.name) {
       bottomForm = this.renderAdditionalImages();
-    } else {
-      bottomForm = this.renderGetMainImage();
-    }
+    // } else {
+    //   bottomForm = this.renderGetMainImage();
+    // }
 
     if (this.state.imageBrowserOpen) {
       return <ImageBrowser max={4} callback={this.imageBrowserCallback} />;
