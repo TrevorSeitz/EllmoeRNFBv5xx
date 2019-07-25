@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, Image, AsyncStorage } from 'react-native';
 import ImagePicker from 'react-native-image-picker'
 
 
@@ -11,6 +11,7 @@ export default class MainImagePicker extends React.Component {
     };
   }
   chooseFile = () => {
+    console.log("inside Choose File")
     var options = {
       title: 'Select Image',
       customButtons: [
@@ -21,8 +22,9 @@ export default class MainImagePicker extends React.Component {
         path: 'images',
       },
     };
-    ImagePicker.showImagePicker(options, response => {
-      console.log('Response = ', response);
+    console.log("Choose File Options Set")
+    ImagePicker.showImagePicker(response => {
+      console.log("Image Picker Response ");
 
       if (response.didCancel) {
         console.log('User cancelled image picker');
@@ -32,15 +34,33 @@ export default class MainImagePicker extends React.Component {
         console.log('User tapped custom button: ', response.customButton);
         alert(response.customButton);
       } else {
+        let result = AsyncStorage.setItem("filePath", response);
         let source = response;
         // You can also display the image using data:
         // let source = { uri: 'data:image/jpeg;base64,' + response.data };
         this.setState({
-          filePath: source,
+          filePath: source.uri,
         });
       }
+      let result = AsyncStorage.multiSet([["filePath", response.uri], ["latitude", response.latitude], ["longitude", response.longitude]]);
+      console.log("last line in Image Picker", response.latitude)
+      this.checkForFilepath()
     });
   };
+
+  checkForFilepath = () => {
+    if (!this.state.filePath) {
+      timer = () => {
+          return setTimeout(function () {
+              checkForFilepath
+          }, 2000);
+      }
+    } else {
+      console.log("going back to Add Location", this.state.filePath)
+      this.props.navigation.navigate("AddLocationScreen")
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -61,7 +81,7 @@ export default class MainImagePicker extends React.Component {
           <Text style={{ alignItems: 'center' }}>
             {this.state.filePath.uri}
           </Text>
-          <Button title="Choose File" onPress={this.chooseFile.bind(this)} />
+          <Button title="Choose A Main Photo" onPress={this.chooseFile.bind(this)} />
         </View>
       </View>
     );
@@ -70,8 +90,6 @@ export default class MainImagePicker extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: 50,
-    height: 10,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',

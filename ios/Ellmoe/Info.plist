@@ -64,6 +64,8 @@
 	<string></string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>App needs photo library Access.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App needs photo library Access.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

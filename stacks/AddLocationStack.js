@@ -4,11 +4,12 @@ import { createStackNavigator } from "react-navigation";
 import Icon from 'react-native-vector-icons/Ionicons'
 
 import AddLocationScreen from "../Screens/AddLocationScreen";
+import MainImagePicker from "../components/MainImagePicker"
 
 const AddLocationStack = createStackNavigator(
   {
     AddLocation: {
-      screen: AddLocationScreen,
+      screen: MainImagePicker,
       navigationOptions: ({ navigation }) => {
         return {
           headerTitle: "Add New Location",
@@ -24,7 +25,8 @@ const AddLocationStack = createStackNavigator(
         // headerRight: <Button onPress={() => navigation.navigate('AddLocationScreen')} title="Clear" />
         };
       }
-    }
+    },
+    AddLocationScreen: AddLocationScreen,
   },
   {
     defaultNavigationOptions: {

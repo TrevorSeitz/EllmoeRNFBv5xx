@@ -12,7 +12,7 @@ import {
   MediaLibrary,
   // ImagePicker,
   Permissions,
-  // AsyncStorage,
+  AsyncStorage,
   Location
 } from "react-native";
 import { TextInput } from "react-native-paper";
@@ -20,7 +20,7 @@ import { Button } from "react-native-elements";
 import * as firebase from 'react-native-firebase';
 import CameraRoll from "@react-native-community/cameraroll"
 // import * as firestore from '@react-native-firebase/firestore';
-import { AsyncStorage } from '@react-native-community/async-storage'
+// import { AsyncStorage } from '@react-native-community/async-storage'
 //import firestore from "firebase/firestore";
 // import { Font } from "expo";
 // import * as MediaLibrary from 'expo-media-library'
@@ -49,6 +49,7 @@ export default class AddLocationScreen extends React.Component {
       imageFileLocation: "",
       photos: [],
       photosLocations: [],
+      filePath: '',
       imageBrowserOpen: false,
       isLoading: false
     };
@@ -60,10 +61,15 @@ export default class AddLocationScreen extends React.Component {
 
   _retrieveData = async () => {
     try {
-      const value = await AsyncStorage.getItem("uid");
+      const value = await AsyncStorage.multiGet("uid", "filePath", "latitude", "longitude");
       if (value !== null) {
-        this.setState({ uid: value });
+        this.setState({ uid: value[0][1],
+                        filePath: value[1][1],
+                        latitude: value[2][1],
+                        longitude: value[3][1]
+                        });
       }
+      console.log("after get: ", this.state.latitude)
     } catch (error) {}
   };
 
@@ -75,8 +81,8 @@ export default class AddLocationScreen extends React.Component {
       });
     }
 
-    let location = await Location.getCurrentPositionAsync({});
-    this.setState({ location });
+    // let location = await Location.getCurrentPositionAsync({});
+    // this.setState({ location });
   };
 
   selectPicture = async () => {
@@ -88,7 +94,11 @@ export default class AddLocationScreen extends React.Component {
       //     console.log('Error loading latest image ' + err);
       // });
     // }
-    this.processImage(result);
+    this.props.navigation.navigate("MainImagePicker")
+    // <MainImagePicker />
+    // let result = await AsyncStorage.getItem("filePath")
+    console.log("AddLocationScreen result: ", this.state.filePath)
+    this.processImage(this.state.filePath);
   };
 
   takePicture = async () => {
@@ -111,6 +121,7 @@ export default class AddLocationScreen extends React.Component {
   };
 
   processImage = async (result, metadata) => {
+    console.log("inside process image", result)
     if (!result.cancelled) {
       if (
         !result.exif.GPSLatitude ||
@@ -332,9 +343,11 @@ export default class AddLocationScreen extends React.Component {
   };
 
   renderGetMainImage = () => {
+
     return (
       <View>
         <Text style={styles.buttonText}>Add Main Photo</Text>
+        <View><MainImagePicker /></View>
         <View style={styles.buttonContainer}>
           <View style={{ flex: 1 }}>
             <Button3 onPress={this.selectPicture}>Choose from Camera Roll</Button3>

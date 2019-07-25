@@ -8,14 +8,14 @@ import {
   Dimensions,
   ActivityIndicator,
   Image,
-  // AsyncStorage,
+  AsyncStorage,
   FileSystem
 } from "react-native";
 // import { FileSystem } from "expo";
 import { Button } from "react-native-elements";
 import * as firebase from 'react-native-firebase';
 // import * as firestore from '@react-native-firebase/firestore';
-import { AsyncStorage } from '@react-native-community/async-storage'
+// import { AsyncStorage } from '@react-native-community/async-storage'
 //  Files
 import ImageTile from "./ImageTile";
 import AdditionalPhotosTile from "./AdditionalPhotosTile";

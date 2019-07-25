@@ -5,14 +5,14 @@ import {
   ActivityIndicator,
   View,
   Image,
-  // AsyncStorage,
+  AsyncStorage,
   Alert
 } from "react-native";
 import { TextInput } from "react-native-paper";
 import { Text, Button } from "react-native-elements";
 import * as firebase from 'react-native-firebase';
 // import * as firestore from '@react-native-firebase/firestore';
-import { AsyncStorage } from '@react-native-community/async-storage'
+// import { AsyncStorage } from '@react-native-community/async-storage'
 
 export default class EditLocationScreen extends React.Component {
   static navigationOptions = {

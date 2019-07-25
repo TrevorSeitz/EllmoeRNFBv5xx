@@ -5,11 +5,11 @@ import {
   Text,
   TextInput,
   Button,
-  // AsyncStorage
+  AsyncStorage
 } from "react-native";
 import firebase from 'react-native-firebase';
 // import { firebase } from '@react-native-firebase/auth';
-import { AsyncStorage } from '@react-native-community/async-storage'
+// import { AsyncStorage } from '@react-native-community/async-storage'
 
 export default class LoginScreen extends React.Component {
   state = {

@@ -1,6 +1,6 @@
 import React from "react";
-import { Text, View, StyleSheet} from "react-native";
-import { AsyncStorage } from '@react-native-community/async-storage'
+import { Text, View, StyleSheet, AsyncStorage } from "react-native";
+// import { AsyncStorage } from '@react-native-community/async-storage'
 //  Screens
 import Map from "./Map";
 

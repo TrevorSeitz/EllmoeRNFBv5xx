@@ -4,13 +4,13 @@ import {
   ScrollView,
   ActivityIndicator,
   View,
-  // AsyncStorage,
+  AsyncStorage,
   Font
 } from "react-native";
 import { ListItem, Avatar } from "react-native-elements";
 import * as firebase from 'react-native-firebase';
 // import * as firestore from '@react-native-firebase/firestore';
-import { AsyncStorage } from '@react-native-community/async-storage'
+// import { AsyncStorage } from '@react-native-community/async-storage'
 //import firestore from "firebase/firestore";
 // import { Font } from "expo";
 
