@@ -7,7 +7,7 @@ import {
   Text,
   View,
   StyleSheet,
-  AsyncStorage,
+  // AsyncStorage,
   Image,
   TouchableOpacity,
   Permissions,
@@ -20,7 +20,7 @@ import {
 // import Constants from 'expo-constants'
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps'
 import Icon from 'react-native-vector-icons/Ionicons'
-// import { AsyncStorage } from 'react-native-community/async-storage'
+import { AsyncStorage } from '@react-native-community/async-storage'
 
 // import GetCurrentLocation from '../components/GetCurrentLocation'
 
@@ -28,7 +28,7 @@ export default class Map extends React.Component {
   constructor(props) {
     super(props);
     this._isMounted = false;
-    this.unsubscribe = null;
+    // this.unsubscribe = null;
     this.state = {
       uid: "",
       user: {},
@@ -165,7 +165,7 @@ export default class Map extends React.Component {
   };
 
   componentWillUnmount = () => {
-    this.unsubscriber();
+    // this.unsubscriber();
     this._isMounted = false;
   }
 

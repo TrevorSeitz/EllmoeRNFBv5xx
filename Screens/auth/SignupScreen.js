@@ -5,12 +5,12 @@ import {
   Text,
   TextInput,
   Button,
-  AsyncStorage,
+  // AsyncStorage,
   Alert
 } from "react-native";
 import * as firebase from 'react-native-firebase';
 // import * as firestore from '@react-native-firebase/firestore';
-// import { AsyncStorage } from '@react-native-community/async-storage'
+import { AsyncStorage } from '@react-native-community/async-storage'
 
 export default class SignupScreen extends React.Component {
   constructor(props) {

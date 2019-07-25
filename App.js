@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView, AsyncStorage, Constants, TextInput } from 'react-native';
+import { StyleSheet, Platform, Image, Text, View, ScrollView, Constants, TextInput } from 'react-native';
+import { AsyncStorage } from '@react-native-community/async-storage'
 import firebase from 'react-native-firebase';
 import { createAppContainer } from "react-navigation";
 // Navigators

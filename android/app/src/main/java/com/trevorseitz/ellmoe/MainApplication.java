@@ -5,6 +5,9 @@ import android.support.multidex.MultiDexApplication;
 import com.facebook.react.ReactApplication;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
+
+//import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.facebook.react.ReactNativeHost;
@@ -46,6 +49,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
         new MainReactPackage(),
             new ImagePickerPackage(),
             new CameraRollPackage(),
+            //new AsyncStoragePackage(),
             new VectorIconsPackage(),
             new MapsPackage(),
         new RNFirebasePackage(),
