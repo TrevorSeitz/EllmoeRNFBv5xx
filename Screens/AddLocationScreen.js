@@ -10,7 +10,7 @@ import {
   Text,
   Font,
   MediaLibrary,
-  ImagePicker,
+  // ImagePicker,
   Permissions,
   AsyncStorage,
   Location
@@ -18,6 +18,7 @@ import {
 import { TextInput } from "react-native-paper";
 import { Button } from "react-native-elements";
 import * as firebase from 'react-native-firebase';
+import CameraRoll from "@react-native-community/cameraroll"
 // import * as firestore from '@react-native-firebase/firestore';
 // import { AsyncStorage } from '@react-native-community/async-storage'
 //import firestore from "firebase/firestore";
@@ -28,6 +29,7 @@ import * as firebase from 'react-native-firebase';
 // import * as Location from 'expo-location'
 import ImageBrowser from "./ImageBrowser";
 import SaveMainPhoto from "../components/SaveMainPhoto";
+import MainImagePicker from "../components/MainImagePicker"
 
 export default class AddLocationScreen extends React.Component {
   constructor(props) {
@@ -78,14 +80,14 @@ export default class AddLocationScreen extends React.Component {
   };
 
   selectPicture = async () => {
-    await Permissions.askAsync(Permissions.CAMERA_ROLL);
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: false,
-      aspect: 1,
-      quality: 1,
-      exif: true
-    });
+      // let result = await CameraRoll.getPhotos({
+      //     first: 50,
+      //     assetType: 'Photos',
+      //     groupTypes: 'any'
+      // }).catch((err) => {
+      //     console.log('Error loading latest image ' + err);
+      // });
+    // }
     this.processImage(result);
   };
 
@@ -335,7 +337,7 @@ export default class AddLocationScreen extends React.Component {
         <Text style={styles.buttonText}>Add Main Photo</Text>
         <View style={styles.buttonContainer}>
           <View style={{ flex: 1 }}>
-            <Button3 onPress={this.selectPicture}>Gallery</Button3>
+            <Button3 onPress={this.selectPicture}>Choose from Camera Roll</Button3>
           </View>
           <View style={{ flex: 1 }}>
             <Button3 onPress={this.takePicture}>Take Picture</Button3>

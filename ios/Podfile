@@ -49,6 +49,10 @@ target 'Ellmoe' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  # pod 'react-native-cameraroll', :path => '../node_modules/@react-native-community/cameraroll'
+
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
 end
 
 post_install do |installer|
@@ -57,6 +61,9 @@ post_install do |installer|
       target.remove_from_project
     end
     if target.name == "yoga"
+      target.remove_from_project
+    end
+    if target.name = "cameraroll"
       target.remove_from_project
     end
   end
