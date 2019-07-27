@@ -3,6 +3,7 @@ package com.trevorseitz.ellmoe;
 import android.support.multidex.MultiDexApplication;
 
 import com.facebook.react.ReactApplication;
+import io.liaoyuan.reactnative.multipleimagepicker.MultipleImagePickerPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnativecommunity.cameraroll.CameraRollPackage;
 
@@ -47,6 +48,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
+            new MultipleImagePickerPackage(),
             new ImagePickerPackage(),
             new CameraRollPackage(),
             //new AsyncStoragePackage(),

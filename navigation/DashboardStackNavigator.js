@@ -1,8 +1,7 @@
 import React from "react";
 import { createStackNavigator } from "react-navigation";
-// import Icon from 'react-native-vector-icons/Ionicons'
 import Icon from 'react-native-vector-icons/Ionicons'
-
+// Navigators
 import DashboardTabNavigator from "./DashboardTabNavigator";
 
 const DashboardStackNavigator = createStackNavigator(
@@ -13,7 +12,6 @@ const DashboardStackNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerLeft: (
-          // <Icon.Ionicons
           <Icon
             style={{ paddingLeft: 10 }}
             onPress={() => navigation.openDrawer()}

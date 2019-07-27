@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView, Constants, TextInput, AsyncStorage } from 'react-native';
-// import { AsyncStorage } from '@react-native-community/async-storage'
 import firebase from 'react-native-firebase';
 import { createAppContainer } from "react-navigation";
+// import { AsyncStorage } from '@react-native-community/async-storage'  // change to this once AsyncStorage is depricated from react-native
 // Navigators
 import LoginSwitchNavigator from "./navigation/switches/LoginSwitchNavigator";
 import AppSwitchNavigator from "./navigation/switches/AppSwitchNavigator";
@@ -34,19 +34,13 @@ export default class App extends React.Component {
       this.setState({ user });
       this._isMounted = true ;
     });
-    console.log("in App.js")
   }
 
   getCurrentLocation = async () => {
-    console.log("Trying to get current location")
     const location = await GetCurrentLocation()
-    // this.setState({ latitude: location.coords.latitude,
-    //                 longitude: location.coords.longitude})
-    console.log("Current Location: ", location)
   }
 
   _storeData = async () => {
-    console.log("App.js Set Data uid: ", this.state.user.uid);
     try {
       await AsyncStorage.setItem("uid", this.state.user.uid);
     } catch (error) {
@@ -63,9 +57,7 @@ export default class App extends React.Component {
   }
 
 render() {
-  // this.getCurrentLocation()
   const user = this.state.user;
-  // return (
   return (
     <View style={styles.container}>
       {!user ? <LoginContainer /> : <AppContainer />}
@@ -81,7 +73,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    // paddingTop: Constants.statusBarHeight,
     backgroundColor: "#ecf0f1",
     padding: 8
   },

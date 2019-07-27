@@ -1,3 +1,7 @@
+// use thes for future set querySnapshot
+// import * as firestore from '@react-native-firebase/firestore';
+// import { AsyncStorage } from '@react-native-community/async-storage'
+//import firestore from "firebase/firestore";
 import React from "react";
 import {
   StyleSheet,
@@ -17,16 +21,8 @@ import {
 } from "react-native";
 import { TextInput } from "react-native-paper";
 import { Button } from "react-native-elements";
-import * as firebase from 'react-native-firebase';
-import CameraRoll from "@react-native-community/cameraroll"
-// import * as firestore from '@react-native-firebase/firestore';
-// import { AsyncStorage } from '@react-native-community/async-storage'
-//import firestore from "firebase/firestore";
-// import { Font } from "expo";
-// import * as MediaLibrary from 'expo-media-library'
-// import * as ImagePicker from 'expo-image-picker'
-// import * as Permissions from 'expo-permissions'
-// import * as Location from 'expo-location'
+import firebase from 'react-native-firebase';
+import MultipleImagePicker from 'react-native-multiple-image-picker'
 import ImageBrowser from "./ImageBrowser";
 import SaveMainPhoto from "../components/SaveMainPhoto";
 import MainImagePicker from "../components/MainImagePicker"
@@ -35,7 +31,7 @@ export default class AddLocationScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      uid: "this didn't change",
+      uid: "",
       name: "",
       project: "",
       latitude: "",
@@ -50,62 +46,59 @@ export default class AddLocationScreen extends React.Component {
       photos: [],
       photosLocations: [],
       filePath: "",
+      currentLatitude: 0,
+      currentLongitude: 0,
       imageBrowserOpen: false,
       isLoading: false
     };
-    console.log("Inside Add Location Screen")
     this._retrieveData()
     this.ref = firebase.firestore().collection("locations");
-    // this.ref = firestore.collection("locations");
-    var storage = firebase.storage();
-    var storageRef = storage.ref();
-    console.log("after storage ref - ",  this.state.uid)
+    console.log("AddLocationScreen - this should be from props - ", this.state.photos)
+    const storage = firebase.storage();
+    const storageRef = storage.ref();
+    const { navigate } = this.props.navigation;
+  }
+
+  getAdditionalPhotos = () => {
+    const options = {
+      maxImagesCount: 4,      // Max number of images user can select; if maxImagesCount == 1, Single mode (i.e. Tap to Select & Finish) will be activated.
+      selectedPaths: []
+      // Currently selected paths, must be from result of previous calls. Empty array allowed.
+    };
+    MultipleImagePicker.launchImageGallery(options)
+    .then((newSelectedPaths) => {
+        // newSelectedPaths will be an Array of String, like [ '/path/1', '/path/2' ], and may be used for `selectedPaths` on the next invocation
+    });
   }
 
   _retrieveData = async () => {
     try {
-      const value = await AsyncStorage.multiGet(["uid", "filePath", "latitude", "longitude", 'fileName']);
-      console.log("retrieved value:", value)
+      const value = await AsyncStorage.multiGet(["uid", "filePath", "latitude", "longitude", "fileName", "currentLatitude", "currentLongitude" ]);
+      console.log("AddLocationScreen - retrieved value:", value)
       if (value !== null) {
         this.setState({ uid: value[0][1],
-                        filePath: value[1][1],
-                        latitude: value[2][1],
-                        longitude: value[3][1],
-                        imageFileName: value[4][1]
+                        filePath: value[1][1],   // Image file path
+                        latitude: value[2][1],   // Image latitude
+                        longitude: value[3][1],  // Image longitude
+                        imageFileName: value[4][1],
+                        currentLatitude: value[5][1],
+                        currentLongitude: value[6][1],
                         });
       }
+      const photoArray = await AsyncStorage.getItem("photos")
+      .then(req => JSON.parse(req))
+      .then(json => this.setState({photos: json}))
+      .then(console.log("AddLocationScreen - this.state.photos - ", this.state.photos))
+      .catch(error => console.log('error!'));
 
-
-      console.log("after get: ", this.state.filePath)
     } catch (error) {}
   };
 
-  _getLocationAsync = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== "granted") {
-      this.setState({
-        errorMessage: "Permission to access location was denied"
-      });
-    }
-
-    // let location = await Location.getCurrentPositionAsync({});
-    // this.setState({ location });
-  };
-
-  selectPicture = async () => {
-      // let result = await CameraRoll.getPhotos({
-      //     first: 50,
-      //     assetType: 'Photos',
-      //     groupTypes: 'any'
-      // }).catch((err) => {
-      //     console.log('Error loading latest image ' + err);
-      // });
-    // }
-    this.props.navigation.navigate("MainImagePicker")
-    // <MainImagePicker />
-    // let result = await AsyncStorage.getItem("filePath")
-    console.log("AddLocationScreen result: ", this.state.filePath)
-    this.processImage(this.state.filePath);
+  selectPicture = () => {
+    // const { navigate } = this.props.navigation;
+    this.props.navigation.navigate('MainImagePicker')
+    // console.log("AddLocationScreen result: ", this.state.filePath)
+    // this.processImage(this.state.filePath);
   };
 
   takePicture = async () => {
@@ -116,24 +109,30 @@ export default class AddLocationScreen extends React.Component {
       aspect: 1,
       quality: 1,
       exif: true
-    }).then(await this._getLocationAsync());
-    const metadata = result.metadata;
-    result.exif.GPSLatitude = JSON.stringify(
-      this.state.location.coords.latitude
-    );
-    result.exif.GPSLongitude = JSON.stringify(
-      this.state.location.coords.longitude
-    );
-    this.processImage(result, metadata);
+    })
+    // .then(await this._getLocationAsync());
+    // const metadata = result.metadata;
+    // result.exif.GPSLatitude = JSON.stringify(
+    //   this.state.location.coords.latitude
+    // );
+    // result.exif.GPSLongitude = JSON.stringify(
+    //   this.state.location.coords.longitude
+    // );
+    // this.processImage(result, metadata);
+    this.processImage(result);
   };
 
   processImage = async (result, metadata) => {
+    console.log("inside processImage - metadata", metadata)
     console.log("inside process image", result)
     if (!result.cancelled) {
       if (
-        !result.exif.GPSLatitude ||
-        result.exif.GPSLatitude == NaN ||
-        result.exif.GPSLongitude == NaN
+        !this.state.Latitude ||
+        this.state.Latitude == NaN ||
+        this.state.Longitude == NaN
+        // !result.exif.GPSLatitude ||
+        // result.exif.GPSLatitude == NaN ||
+        // result.exif.GPSLongitude == NaN
       ) {
         Alert.alert(
           "This Image Does Not Have Location Data! Please Chooes Another Image"
@@ -326,19 +325,35 @@ export default class AddLocationScreen extends React.Component {
     );
   };
 
+  loading = () => {
+    return (
+      <View style={styles.activity}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
+
   renderAdditionalImages = () => {
+    // use this to add a change main photo button
+    // <View style={{ flex: 1 }}>
+    //   <Button3 onPress={this.selectPicture}>Change Main Image</Button3>
+    // </View>
+    var photoArray = this.state.photos
+    console.log("AddLocationScreen Photos array - ", photoArray)
+    console.log("in AddLocationScreen - renderAdditionalImages - this.state.photos", this.state.photos)
+    // if (photoArray) {
+    //   {photoArray.map((item, i) => this.renderImage(item, i))}
+    // }
     return (
       <View style={styles.container}>
         <View style={styles.photoList}>
           <Image style={styles.image} source={{ uri: this.state.filePath }} />
-          {this.state.photos.map((item, i) => this.renderImage(item, i))}
+
         </View>
         <View style={styles.buttonContainer}>
+
           <View style={{ flex: 1 }}>
-            <Button3 onPress={this.selectPicture}>Change Main Image</Button3>
-          </View>
-          <View style={{ flex: 1 }}>
-            <Button3 onPress={() => this.setState({ imageBrowserOpen: true })}>Add More Photos</Button3>
+            <Button3 onPress={this.getAdditionalPhotos()}>Add More Photos</Button3>
           </View>
         </View>
 
@@ -360,44 +375,16 @@ export default class AddLocationScreen extends React.Component {
         }
        </View>
     )
-
-    // return (
-    //   <View>
-    //     <Text style={styles.buttonText}>Add Main Photo</Text>
-    //     <View><MainImagePicker /></View>
-    //     <View style={styles.buttonContainer}>
-    //       <View style={{ flex: 1 }}>
-    //         <Button3 onPress={this.selectPicture}>Choose from Camera Roll</Button3>
-    //       </View>
-    //       <View style={{ flex: 1 }}>
-    //         <Button3 onPress={this.takePicture}>Take Picture</Button3>
-    //       </View>
-    //     </View>
-    //   </View>
-    // );
   };
 
   render() {
     let bottomForm;
     if (this.state.isLoading) {
-      return (
-        <View style={styles.activity}>
-          <ActivityIndicator size="large" color="#0000ff" />
-        </View>
-      );
+      this.loading()
     }
+    bottomForm = this.renderAdditionalImages();
 
-    // if (this.state.image.uri && this.state.name) {
-      bottomForm = this.renderAdditionalImages();
-    // } else {
-    //   bottomForm = this.renderGetMainImage();
-    // }
-
-    if (this.state.imageBrowserOpen) {
-      return <ImageBrowser max={4} callback={this.imageBrowserCallback} />;
-    }
-
-    return (
+    return(
       <ScrollView style={styles.container}>
         <View style={styles.subContainer}>
           <TextInput

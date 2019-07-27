@@ -68,19 +68,9 @@ export default class Map extends React.Component {
       this.onCollectionUpdate()
       console.log("newLocation = ", newLocation)
       if(typeof newLocation == undefined){
-        console.log("we should not be here")
         this.setState({latitude: parseFloat(newLocation.locationLatitude, 5),
                       longitude: parseFloat(newLocation.locationLongitude, 5)})
-        // console.log("this.state.locationLatitude", this.state.locationLatitude)
       }
-      console.log("Map Data: ", value)
-      console.log("Map State", this.state)
-      // put unsubscribe out side }
-      // this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate)
-    //   }
-    // } catch (error) {
-    //   // Error retrieving data}
-    // }
   }
 
   _storeData = async () => {

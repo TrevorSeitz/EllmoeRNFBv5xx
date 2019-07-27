@@ -6,14 +6,10 @@ import { Location, Constants, Permissions, AsyncStorage } from 'react-native'
 // import { AsyncStorage } from '@react-native-community/async-storage'
 
 const GetCurrentLocation = () => {
-  console.log("inside Get Current Location")
   navigator.geolocation.getCurrentPosition(
     position => {
       const location = position.coords
       this._storeData(location)
-      console.log("Position Current Location - latitude: ", location.latitude)
-      console.log("Position Current Location - longitude: ", location.longitude)
-
     },
     error => Alert.alert(error.message),
     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
