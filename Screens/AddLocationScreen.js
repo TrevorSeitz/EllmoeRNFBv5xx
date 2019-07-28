@@ -494,21 +494,24 @@ const styles = StyleSheet.create({
   //   width: 95
   // },
   photoList: {
+    flex: 1,
     flexDirection: "row",
     padding: 5,
-    // width: 130,
+    // width: 100%,
     // height:110,
     // height: 95,
     // alignItems: "stretch",
+    // resizeMode: 'cover',
     justifyContent: "center"
   },
   image: {
+    flex: 0.25,
     // flexDirection: "row",
     padding: 5,
     margin: 5,
-    width: 100,
-    height: 100,
-    resizeMode: 'contain',
+    resizeMode: 'cover',
+    width: 125,
+    height: 125,
   },
   subContainer: {
     flex: 1,
