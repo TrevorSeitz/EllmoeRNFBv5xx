@@ -4,13 +4,13 @@ import Icon from 'react-native-vector-icons/Ionicons'
 // Screens
 import AddLocationScreen from "../Screens/AddLocationScreen";
 // Components
-import MainImagePicker from "../components/MainImagePicker"
+// import MainImagePicker from "../components/MainImagePicker"
 import MultiImagePicker from "../components/MultiImagePicker"
 
 const AddLocationStack = createStackNavigator(
   {
     AddLocation: {
-      screen: MainImagePicker,
+      screen: AddLocationScreen,
       navigationOptions: ({ navigation }) => {
         return {
           headerTitle: "Add New Location",
@@ -26,7 +26,7 @@ const AddLocationStack = createStackNavigator(
       }
     },
     AddLocationScreen: AddLocationScreen,
-    MainImagePicker: MainImagePicker,
+    // MainImagePicker: MainImagePicker,
     MultiImagePicker: MultiImagePicker,
   },
   {
