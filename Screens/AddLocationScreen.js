@@ -333,7 +333,7 @@ export default class AddLocationScreen extends React.Component {
         <Image
                 source={{ uri: photo}}
                 key={i}
-                style={{height: 200, width: 600}}
+                style={{height: 200, width: 200}}
                 resizeMode='contain' />
     })
   };
@@ -343,7 +343,7 @@ export default class AddLocationScreen extends React.Component {
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
           <View style={{ flex: 1 }}>
-            <Button3 onPress={() => this.getAdditionalPhotos()}>Add Photos</Button3>
+            <Button3 onPress={() => this.getAdditionalPhotos()}>Add/Change Photos</Button3>
           </View>
         </View>
         <View style={styles.buttonSubContainer}>
@@ -406,9 +406,11 @@ export default class AddLocationScreen extends React.Component {
             onChangeText={text => this.updateTextInput(text, "description")}
           />
         </View>
+        <View style={styles.photoList}>
           {this.state.photos.map((img, index) => {
-            return <Image source={{uri: img}} key={index} style={styles.photoList}/>;
+            return <Image source={{uri: img}} key={index} style={styles.image}/>;
           })}
+        </View>
         {bottomForm}
       </ScrollView>
     );
@@ -487,16 +489,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1
   },
-  image: {
-    alignItems: "stretch",
-    width: 95
-  },
+  // image: {
+  //   alignItems: "stretch",
+  //   width: 95
+  // },
   photoList: {
     flexDirection: "row",
     padding: 5,
-    height: 95,
+    // width: 130,
+    // height:110,
+    // height: 95,
     // alignItems: "stretch",
     justifyContent: "center"
+  },
+  image: {
+    // flexDirection: "row",
+    padding: 5,
+    margin: 5,
+    width: 100,
+    height: 100,
+    resizeMode: 'contain',
   },
   subContainer: {
     flex: 1,
