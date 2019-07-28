@@ -511,7 +511,7 @@ const styles = StyleSheet.create({
     margin: 5,
     resizeMode: 'cover',
     width: 125,
-    height: 125,
+    height: 100,
   },
   subContainer: {
     flex: 1,
