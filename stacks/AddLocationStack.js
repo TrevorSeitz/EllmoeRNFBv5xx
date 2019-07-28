@@ -25,9 +25,7 @@ const AddLocationStack = createStackNavigator(
         };
       }
     },
-    AddLocationScreen: AddLocationScreen,
-    // MainImagePicker: MainImagePicker,
-    MultiImagePicker: MultiImagePicker,
+    // MultiImagePicker: MultiImagePicker,
   },
   {
     defaultNavigationOptions: {

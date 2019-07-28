@@ -53,7 +53,6 @@ export default class AddLocationScreen extends React.Component {
     };
     this._retrieveData()
     this.ref = firebase.firestore().collection("locations");
-    console.log("AddLocationScreen - this should be from props - ", this.state.photos)
     const storage = firebase.storage();
     const storageRef = storage.ref();
     const { navigate } = this.props.navigation;
@@ -66,15 +65,15 @@ export default class AddLocationScreen extends React.Component {
       // Currently selected paths, must be from result of previous calls. Empty array allowed.
     };
     MultipleImagePicker.launchImageGallery(options)
+    .then(newSelectedPaths => this.setState({photos: newSelectedPaths}))
     .then((newSelectedPaths) => {
-        // newSelectedPaths will be an Array of String, like [ '/path/1', '/path/2' ], and may be used for `selectedPaths` on the next invocation
+      console.log("Just got pictures - this.state.photos - AddLocationScreen", this.state.photos)
     });
   }
 
   _retrieveData = async () => {
     try {
       const value = await AsyncStorage.multiGet(["uid", "filePath", "latitude", "longitude", "fileName", "currentLatitude", "currentLongitude" ]);
-      console.log("AddLocationScreen - retrieved value:", value)
       if (value !== null) {
         this.setState({ uid: value[0][1],
                         filePath: value[1][1],   // Image file path
@@ -85,21 +84,14 @@ export default class AddLocationScreen extends React.Component {
                         currentLongitude: value[6][1],
                         });
       }
-      const photoArray = await AsyncStorage.getItem("photos")
-      .then(req => JSON.parse(req))
-      .then(json => this.setState({photos: json}))
-      .then(console.log("AddLocationScreen - this.state.photos - ", this.state.photos))
-      .catch(error => console.log('error!'));
-
     } catch (error) {}
   };
 
-  selectPicture = () => {
-    // const { navigate } = this.props.navigation;
-    this.props.navigation.navigate('MainImagePicker')
-    // console.log("AddLocationScreen result: ", this.state.filePath)
-    // this.processImage(this.state.filePath);
-  };
+  // selectPicture = () => {
+  //   this.props.navigation.navigate('MainImagePicker')
+  //   // console.log("AddLocationScreen result: ", this.state.filePath)
+  //   // this.processImage(this.state.filePath);
+  // };
 
   takePicture = async () => {
     await Permissions.askAsync(Permissions.CAMERA);
@@ -123,8 +115,8 @@ export default class AddLocationScreen extends React.Component {
   };
 
   processImage = async (result, metadata) => {
-    console.log("inside processImage - metadata", metadata)
-    console.log("inside process image", result)
+    // console.log("inside processImage - metadata", metadata)
+    // console.log("inside process image", result)
     if (!result.cancelled) {
       if (
         !this.state.Latitude ||
@@ -139,7 +131,7 @@ export default class AddLocationScreen extends React.Component {
         );
       } else {
         this.setState({ image: result });
-        console.log("AddLocationScreen - processImage result: ", result);
+        // console.log("AddLocationScreen - processImage result: ", result);
         const asset = await MediaLibrary.createAssetAsync(result.uri);
         let lat = parseFloat(result.exif.GPSLatitude, 5);
         let long = parseFloat(result.exif.GPSLongitude, 5);
@@ -333,56 +325,40 @@ export default class AddLocationScreen extends React.Component {
     );
   }
 
-  renderAdditionalImages = () => {
-    // use this to add a change main photo button
-    // <View style={{ flex: 1 }}>
-    //   <Button3 onPress={this.selectPicture}>Change Main Image</Button3>
-    // </View>
+  returnAdditionalImages = () => {
     var photoArray = this.state.photos
-    console.log("AddLocationScreen Photos array - ", photoArray)
-    console.log("in AddLocationScreen - renderAdditionalImages - this.state.photos", this.state.photos)
-    // if (photoArray) {
-    //   {photoArray.map((item, i) => this.renderImage(item, i))}
-    // }
+    console.log("returnAdditionalImages - photoArray - ", photoArray)
+    return
+      photoArray.map((photo, i ) => {
+        <Image
+                source={{ uri: photo}}
+                key={i}
+                style={{height: 200, width: 600}}
+                resizeMode='contain' />
+    })
+  };
+
+  returnBottomForm = () =>   {
     return (
       <View style={styles.container}>
-        <View style={styles.photoList}>
-          <Image style={styles.image} source={{ uri: this.state.filePath }} />
-
-        </View>
         <View style={styles.buttonContainer}>
-
           <View style={{ flex: 1 }}>
-            <Button3 onPress={this.getAdditionalPhotos()}>Add More Photos</Button3>
+            <Button3 onPress={() => this.getAdditionalPhotos()}>Add Photos</Button3>
           </View>
         </View>
-
         <View style={styles.buttonSubContainer}>
           <Button large title="Save" onPress={() => this.saveImages()} />
         </View>
       </View>
     );
-  };
-
-  renderGetMainImage = () => {
-    // const mainPhoto = this.state.filePath
-    return (
-      <View style={styles.container}>
-        {this.state.filePath ?
-         <Image source={{uri: this.state.filePath}} style={{width: 130, height:110}}/>
-         :
-         null
-        }
-       </View>
-    )
-  };
+  }
 
   render() {
-    let bottomForm;
+    const photos = this.returnAdditionalImages()
+    const bottomForm = this.returnBottomForm();
     if (this.state.isLoading) {
       this.loading()
     }
-    bottomForm = this.renderAdditionalImages();
 
     return(
       <ScrollView style={styles.container}>
@@ -430,6 +406,9 @@ export default class AddLocationScreen extends React.Component {
             onChangeText={text => this.updateTextInput(text, "description")}
           />
         </View>
+          {this.state.photos.map((img, index) => {
+            return <Image source={{uri: img}} key={index} style={styles.photoList}/>;
+          })}
         {bottomForm}
       </ScrollView>
     );
@@ -516,7 +495,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     padding: 5,
     height: 95,
-    alignItems: "stretch",
+    // alignItems: "stretch",
     justifyContent: "center"
   },
   subContainer: {
