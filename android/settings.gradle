@@ -1,4 +1,6 @@
 rootProject.name = 'Ellmoe'/
+include ':react-native-exif'
+project(':react-native-exif').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-exif/android')
 include ':react-native-multiple-image-picker'
 project(':react-native-multiple-image-picker').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-multiple-image-picker/android')
 include ':react-native-image-picker'

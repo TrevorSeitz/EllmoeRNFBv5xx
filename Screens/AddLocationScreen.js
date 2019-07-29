@@ -23,9 +23,10 @@ import { TextInput } from "react-native-paper";
 import { Button } from "react-native-elements";
 import firebase from 'react-native-firebase';
 import MultipleImagePicker from 'react-native-multiple-image-picker'
+import Exif from 'react-native-exif'
 import ImageBrowser from "./ImageBrowser";
 import SaveMainPhoto from "../components/SaveMainPhoto";
-import MainImagePicker from "../components/MainImagePicker"
+// import MainImagePicker from "../components/MainImagePicker"
 
 export default class AddLocationScreen extends React.Component {
   constructor(props) {
@@ -66,9 +67,16 @@ export default class AddLocationScreen extends React.Component {
     };
     MultipleImagePicker.launchImageGallery(options)
     .then(newSelectedPaths => this.setState({photos: newSelectedPaths}))
-    .then((newSelectedPaths) => {
-      console.log("Just got pictures - this.state.photos - AddLocationScreen", this.state.photos)
-    });
+    .then(() => console.log("this.state.photos[0] - ", this.state.photos[0]))
+    .then(() => Exif.getExif(this.state.photos[0]) )
+    .then((result) => {console.log("Result of exif - ", result )})
+    // .then(msg => console.warn('OK: ' + JSON.stringify(msg)))
+    .catch(msg => console.warn('ERROR: ' + msg))
+
+    // Exif.getLatLong('/sdcard/tt.jpg')
+    // .then(({latitude, longitude}) => {console.warn('OK: ' + latitude + ', ' + longitude)})
+    // .catch(msg => console.warn('ERROR: ' + msg))
+
   }
 
   _retrieveData = async () => {
@@ -76,22 +84,16 @@ export default class AddLocationScreen extends React.Component {
       const value = await AsyncStorage.multiGet(["uid", "filePath", "latitude", "longitude", "fileName", "currentLatitude", "currentLongitude" ]);
       if (value !== null) {
         this.setState({ uid: value[0][1],
-                        filePath: value[1][1],   // Image file path
-                        latitude: value[2][1],   // Image latitude
-                        longitude: value[3][1],  // Image longitude
-                        imageFileName: value[4][1],
+                        // filePath: value[1][1],   // Image file path
+                        // latitude: value[2][1],   // Image latitude
+                        // longitude: value[3][1],  // Image longitude
+                        // imageFileName: value[4][1],
                         currentLatitude: value[5][1],
                         currentLongitude: value[6][1],
                         });
       }
     } catch (error) {}
   };
-
-  // selectPicture = () => {
-  //   this.props.navigation.navigate('MainImagePicker')
-  //   // console.log("AddLocationScreen result: ", this.state.filePath)
-  //   // this.processImage(this.state.filePath);
-  // };
 
   takePicture = async () => {
     await Permissions.askAsync(Permissions.CAMERA);
@@ -131,7 +133,6 @@ export default class AddLocationScreen extends React.Component {
         );
       } else {
         this.setState({ image: result });
-        // console.log("AddLocationScreen - processImage result: ", result);
         const asset = await MediaLibrary.createAssetAsync(result.uri);
         let lat = parseFloat(result.exif.GPSLatitude, 5);
         let long = parseFloat(result.exif.GPSLongitude, 5);
@@ -206,6 +207,7 @@ export default class AddLocationScreen extends React.Component {
     this.setState({
       isLoading: true //Start activity animation
     });
+    console.log("save images photos - ",  this.state.photos)
     let allLocalPhotos = [...this.state.photos];
     console.log(
       "AddLocationScreen - SaveImages - allLocalPhotos before add",
@@ -223,9 +225,9 @@ export default class AddLocationScreen extends React.Component {
       if (allLocalPhotos[i].file) {
         console.log("in the loop for extra photos: ", i);
         await this.uploadExtraImage(allLocalPhotos[i]);
-      } else {
-        console.log("Saving MAIN photos: ", i);
-        this.uploadMainImage(allLocalPhotos[i]);
+      // } else {
+      //   console.log("Saving MAIN photos: ", i);
+        // this.uploadMainImage(allLocalPhotos[i]);
       }
     }
   };
@@ -251,30 +253,6 @@ export default class AddLocationScreen extends React.Component {
           photosLocations: [...prevState.photosLocations, result]
         }));
       })
-      .catch(error => {
-        Alert.alert(error);
-      });
-  };
-
-  uploadMainImage = async uri => {
-    const blob = await this.uriToBlob(uri);
-    const fileName = this.state.imageFileName;
-    const location = this.state.imageFileLocation;
-    var ref = firebase
-      .storage()
-      .ref()
-      .child("images/" + fileName);
-    const snapshot = await ref.put(blob);
-    const imageFileLocation = await snapshot.ref
-      .getDownloadURL()
-      .then(result => this.setState({ imageFileLocation: result }))
-      .then(() => this.saveLocation())
-      .then(() => {
-        this.setState({
-          isLoading: true
-        });
-      })
-      .then(() => Alert.alert("Success!"))
       .catch(error => {
         Alert.alert(error);
       });
@@ -327,7 +305,7 @@ export default class AddLocationScreen extends React.Component {
 
   returnAdditionalImages = () => {
     var photoArray = this.state.photos
-    console.log("returnAdditionalImages - photoArray - ", photoArray)
+    // console.log("returnAdditionalImages - photoArray - ", photoArray)
     return
       photoArray.map((photo, i ) => {
         <Image
@@ -346,11 +324,9 @@ export default class AddLocationScreen extends React.Component {
             <Button3 onPress={() => this.getAdditionalPhotos()}>Add/Change Photos</Button3>
           </View>
         </View>
-
-          <View style={styles.buttonSubContainer}>
-            <Button large title="Save" onPress={() => this.saveImages()} />
-          </View>
-        
+        <View style={styles.buttonSubContainer}>
+          <Button large title="Save" onPress={() => this.saveImages()} />
+        </View>
       </View>
     );
   }

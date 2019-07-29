@@ -66,7 +66,7 @@ export default class Map extends React.Component {
                       longitude: parseFloat(value[2][1])
       })
       this.onCollectionUpdate()
-      console.log("newLocation = ", newLocation)
+      // console.log("newLocation = ", newLocation)
       if(typeof newLocation == undefined){
         this.setState({latitude: parseFloat(newLocation.locationLatitude, 5),
                       longitude: parseFloat(newLocation.locationLongitude, 5)})
@@ -137,7 +137,7 @@ export default class Map extends React.Component {
         this.setState({ locations });
       });
 
-      console.log("Map State locations", this.state.locations)
+      // console.log("Map State locations", this.state.locations)
   };
 
 // for use with manually added "current position" button

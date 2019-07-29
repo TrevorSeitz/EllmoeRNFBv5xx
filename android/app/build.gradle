@@ -146,6 +146,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-exif')
     implementation project(':react-native-multiple-image-picker')
     implementation project(':react-native-image-picker')
     implementation project(':@react-native-community_cameraroll')
