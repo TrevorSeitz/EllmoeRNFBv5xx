@@ -346,9 +346,11 @@ export default class AddLocationScreen extends React.Component {
             <Button3 onPress={() => this.getAdditionalPhotos()}>Add/Change Photos</Button3>
           </View>
         </View>
-        <View style={styles.buttonSubContainer}>
-          <Button large title="Save" onPress={() => this.saveImages()} />
-        </View>
+
+          <View style={styles.buttonSubContainer}>
+            <Button large title="Save" onPress={() => this.saveImages()} />
+          </View>
+        
       </View>
     );
   }
