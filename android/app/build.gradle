@@ -146,6 +146,12 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-multiple-image-picker')
+    implementation project(':react-native-image-picker')
+    implementation project(':@react-native-community_cameraroll')
+    //implementation project(':@react-native-community_async-storage')
+    implementation project(':react-native-vector-icons')
+    implementation project(':react-native-maps')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
