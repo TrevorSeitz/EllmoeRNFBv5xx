@@ -52,6 +52,9 @@
 		A351FA149D734FFD9E666F29 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 868442EF40E640309317FF7E /* MaterialCommunityIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C23059B0455A4532BCB08237 /* libRCTMultipleImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38995C36691B4F49B5DFE49C /* libRCTMultipleImagePicker.a */; };
+		C3261FFD22F1F1BA0033040F /* libBoringSSL-GRPC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */; };
+		C3261FFE22F1F1BA0033040F /* libdouble-conversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */; };
+		C326200222F1F4040033040F /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C326200122F1F4040033040F /* libDoubleConversion.a */; };
 		C348685222DA6FFF00697D26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C348685122DA6FFF00697D26 /* GoogleService-Info.plist */; };
 		C3527F0C22DFB714009B3171 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3527F0B22DFB714009B3171 /* MapKit.framework */; };
 		C352837B22E22256009B3171 /* AIRDummyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C352834922E22256009B3171 /* AIRDummyView.m */; };
@@ -375,6 +378,13 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
+		C3261FFF22F1F28B0033040F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 139D7E871E25C6D100323FB7;
+			remoteInfo = "double-conversion";
+		};
 		C352831F22E221AB009B3171 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C352831B22E221AB009B3171 /* AirMaps.xcodeproj */;
@@ -486,6 +496,9 @@
 		9706A0C8ADEB4C99810CD87D /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B2121FE3F0701D7C33F213D3 /* Pods-Ellmoe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ellmoe.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ellmoe/Pods-Ellmoe.release.xcconfig"; sourceTree = "<group>"; };
+		C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libBoringSSL-GRPC.a"; path = "build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC/libBoringSSL-GRPC.a"; sourceTree = "<group>"; };
+		C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libdouble-conversion.a"; path = "build/Ellmoe/Build/Products/Debug-iphonesimulator/libdouble-conversion.a"; sourceTree = "<group>"; };
+		C326200122F1F4040033040F /* libDoubleConversion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libDoubleConversion.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C341FC5253CA480F86B722C6 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		C348685122DA6FFF00697D26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C3527F0B22DFB714009B3171 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -565,6 +578,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3261FFD22F1F1BA0033040F /* libBoringSSL-GRPC.a in Frameworks */,
+				C326200222F1F4040033040F /* libDoubleConversion.a in Frameworks */,
+				C3261FFE22F1F1BA0033040F /* libdouble-conversion.a in Frameworks */,
 				C3863F7D22EB667900302F44 /* TZImagePickerController.framework in Frameworks */,
 				C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */,
 				C3863F7422EB65CA00302F44 /* libRCTMultipleImagePicker.a in Frameworks */,
@@ -786,6 +802,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */,
+				C326200122F1F4040033040F /* libDoubleConversion.a */,
+				C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */,
 				C3863F7522EB664100302F44 /* TZImagePickerController.xcodeproj */,
 				C3527F0B22DFB714009B3171 /* MapKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
@@ -1021,6 +1040,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C326200022F1F28B0033040F /* PBXTargetDependency */,
 				C3863F8122EB668600302F44 /* PBXTargetDependency */,
 			);
 			name = Ellmoe;
@@ -1574,7 +1594,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1739,6 +1759,11 @@
 			target = 2D02E47A1E0B4A5D006451C7 /* Ellmoe-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
+		C326200022F1F28B0033040F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "double-conversion";
+			targetProxy = C3261FFF22F1F28B0033040F /* PBXContainerItemProxy */;
+		};
 		C3863F8122EB668600302F44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TZImagePickerControllerFramework;
@@ -1850,6 +1875,11 @@
 				INFOPLIST_FILE = Ellmoe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC",
+					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1891,6 +1921,11 @@
 				INFOPLIST_FILE = Ellmoe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC",
+					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
