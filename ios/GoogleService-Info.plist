@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
+	<key>CLIENT_ID</key>
+	<string>774360750184-1rk4n3s361igkq2fd2ltlk1umkmnd99g.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.774360750184-1rk4n3s361igkq2fd2ltlk1umkmnd99g</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAdb-VyzqskSDW_vxh984z7elcmNkPOYts</string>
+	<key>GCM_SENDER_ID</key>
+	<string>774360750184</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ELLMOE</string>
+	<key>PROJECT_ID</key>
+	<string>ellmoe</string>
+	<key>STORAGE_BUCKET</key>
+	<string>ellmoe.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:774360750184:ios:f0e30d57d5659b9c</string>
+	<key>DATABASE_URL</key>
+	<string>https://ellmoe.firebaseio.com</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>ellmoe needs Location access for &quot;center map on location&quot;!</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>ellmoe needs Photo Library Access to save and accesss photos of locations</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires access to the photo library.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlechromes</string>
+		<string>comgooglemaps</string>
+	</array>
+</dict>
+</plist>
