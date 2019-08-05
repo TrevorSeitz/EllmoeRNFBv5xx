@@ -81,6 +81,14 @@
 		C352839222E22256009B3171 /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837922E22256009B3171 /* AIRGMSMarker.m */; };
 		C352839322E22256009B3171 /* AIRGoogleMapCalloutSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837A22E22256009B3171 /* AIRGoogleMapCalloutSubview.m */; };
 		C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C352853122E3A684009B3171 /* libRNGestureHandler.a */; };
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+=======
+>>>>>>> Stashed changes
+		C3827CA822F1D11D008B87D0 /* libBoringSSL-GRPC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */; };
+		C3863F7422EB65CA00302F44 /* libRCTMultipleImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F3522EB64D800302F44 /* libRCTMultipleImagePicker.a */; };
+>>>>>>> Stashed changes
 		C3863F7D22EB667900302F44 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; };
 		C3863F7E22EB668600302F44 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; };
 		C3863F7F22EB668600302F44 /* TZImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -550,6 +558,7 @@
 		C352837922E22256009B3171 /* AIRGMSMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGMSMarker.m; sourceTree = "<group>"; };
 		C352837A22E22256009B3171 /* AIRGoogleMapCalloutSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIRGoogleMapCalloutSubview.m; sourceTree = "<group>"; };
 		C352850422E3A682009B3171 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libBoringSSL-GRPC.a"; path = "build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC/libBoringSSL-GRPC.a"; sourceTree = "<group>"; };
 		C3863F7522EB664100302F44 /* TZImagePickerController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TZImagePickerController.xcodeproj; path = "../node_modules/react-native-multiple-image-picker/ios/TZImagePickerController/TZImagePickerController.xcodeproj"; sourceTree = "<group>"; };
 		C3C2E39922EF339700B9BF5C /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		C3D3E86322E63886008146CB /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "Ellmoe/Images-2.xcassets"; sourceTree = "<group>"; };
@@ -575,9 +584,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				C3261FFD22F1F1BA0033040F /* libBoringSSL-GRPC.a in Frameworks */,
 				C326200222F1F4040033040F /* libDoubleConversion.a in Frameworks */,
 				C3261FFE22F1F1BA0033040F /* libdouble-conversion.a in Frameworks */,
+=======
+				C3827CA822F1D11D008B87D0 /* libBoringSSL-GRPC.a in Frameworks */,
+>>>>>>> Stashed changes
+=======
+				C3827CA822F1D11D008B87D0 /* libBoringSSL-GRPC.a in Frameworks */,
+>>>>>>> Stashed changes
 				C3863F7D22EB667900302F44 /* TZImagePickerController.framework in Frameworks */,
 				C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */,
 				C3863F7E22EB668600302F44 /* TZImagePickerController.framework in Frameworks */,
@@ -798,9 +815,17 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */,
 				C326200122F1F4040033040F /* libDoubleConversion.a */,
 				C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */,
+=======
+				C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */,
+>>>>>>> Stashed changes
+=======
+				C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */,
+>>>>>>> Stashed changes
 				C3863F7522EB664100302F44 /* TZImagePickerController.xcodeproj */,
 				C3527F0B22DFB714009B3171 /* MapKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
@@ -1030,8 +1055,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				E5B4B8AE4D595D54AD312DFD /* [CP] Copy Pods Resources */,
 				C3863F8222EB668600302F44 /* Embed Frameworks */,
+				FA4BC3B0609DD1EBB57AFA4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1628,7 +1653,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E5B4B8AE4D595D54AD312DFD /* [CP] Copy Pods Resources */ = {
+		FA4BC3B0609DD1EBB57AFA4C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1867,7 +1892,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator",
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1912,7 +1943,13 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC",
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator",
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",

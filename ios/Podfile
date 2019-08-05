@@ -22,9 +22,9 @@ target 'Ellmoe' do
     'RCTWebSocket',
   ]
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-  pod 'DoubleConversion',
-    :podspec => "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec",
-    :inhibit_warnings => true
+  # pod 'DoubleConversion',
+  #   :podspec => "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec",
+  #   :inhibit_warnings => true
   pod 'Folly',
     :podspec => "../node_modules/react-native/third-party-podspecs/Folly.podspec",
     :inhibit_warnings => true
