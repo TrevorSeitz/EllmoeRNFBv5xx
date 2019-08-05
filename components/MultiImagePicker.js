@@ -1,8 +1,9 @@
 
 import React from "react";
 import { AsyncStorage } from "react-native"
-import MainImagePicker from "./MainImagePicker"
+// import MainImagePicker from "./MainImagePicker"
 import MultipleImagePicker from 'react-native-multiple-image-picker'
+import Exif from 'react-native-exif'
 
 
 export default class MultiImagePicker extends React.Component {
@@ -28,19 +29,12 @@ export default class MultiImagePicker extends React.Component {
     .then(newSelectedPaths => this.setState({additionalPhotos: newSelectedPaths}))
     .then(newSelectedPaths => {console.log("testing multi image picker - ", newSelectedPaths)})
     .then(() => AsyncStorage.setItem("photos", JSON.stringify(this.state.additionalPhotos)))
-    // .then(
-    //   checkForAdditionalPhotos = () => {
-    //     if (!this.state.additionalPhotos) {
-    //       timer = () => {
-    //           return setTimeout(function () {
-    //               checkForAdditionalPhotos
-    //           }, 2000);
-    //       }
-    //     } else {
-    //     // this.props.navigation.navigate({routeName: "AddLocationScreen"})
-    //     }
-    //   }
-    // )
+    .then(() => console.log("trying to get exif data !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!") )
+    .then(() => Exif.getExif(this.state.additionalPhotos[0])
+    .then(msg => console.warn('OK: ' + JSON.stringify(msg)))
+    .catch(msg => console.warn('ERROR: ' + msg))
+
+
   }
   render() {
     return(null)

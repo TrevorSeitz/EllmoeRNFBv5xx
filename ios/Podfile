@@ -61,10 +61,12 @@ target 'Ellmoe' do
 
   # pod 'react-native-cameraroll', :path => '../node_modules/@react-native-community/cameraroll'
 
-  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+  # pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
   # pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
 
+
+  pod 'react-native-exif', :path => '../node_modules/react-native-exif'
 
 end
 
