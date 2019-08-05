@@ -33,9 +33,8 @@ export default class MultiImagePicker extends React.Component {
     .then(() => Exif.getExif(this.state.additionalPhotos[0])
     .then(msg => console.warn('OK: ' + JSON.stringify(msg)))
     .catch(msg => console.warn('ERROR: ' + msg))
-
-
   }
+
   render() {
     return(null)
   }
