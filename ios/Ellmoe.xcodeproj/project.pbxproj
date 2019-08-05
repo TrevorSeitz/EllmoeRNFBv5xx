@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -51,7 +50,6 @@
 		9A81893103E449D5B1F320D8 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D78BC0899B3C49FD868A048A /* EvilIcons.ttf */; };
 		A351FA149D734FFD9E666F29 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 868442EF40E640309317FF7E /* MaterialCommunityIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		C23059B0455A4532BCB08237 /* libRCTMultipleImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 38995C36691B4F49B5DFE49C /* libRCTMultipleImagePicker.a */; };
 		C3261FFD22F1F1BA0033040F /* libBoringSSL-GRPC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */; };
 		C3261FFE22F1F1BA0033040F /* libdouble-conversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */; };
 		C326200222F1F4040033040F /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C326200122F1F4040033040F /* libDoubleConversion.a */; };
@@ -83,7 +81,6 @@
 		C352839222E22256009B3171 /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837922E22256009B3171 /* AIRGMSMarker.m */; };
 		C352839322E22256009B3171 /* AIRGoogleMapCalloutSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837A22E22256009B3171 /* AIRGoogleMapCalloutSubview.m */; };
 		C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C352853122E3A684009B3171 /* libRNGestureHandler.a */; };
-		C3863F7422EB65CA00302F44 /* libRCTMultipleImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F3522EB64D800302F44 /* libRCTMultipleImagePicker.a */; };
 		C3863F7D22EB667900302F44 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; };
 		C3863F7E22EB668600302F44 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; };
 		C3863F7F22EB668600302F44 /* TZImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -406,13 +403,6 @@
 			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
 			remoteInfo = "RNGestureHandler-tvOS";
 		};
-		C3863F3422EB64D800302F44 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 130BE4C2168A4D5B863DC2C3 /* RCTMultipleImagePicker.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9F94BEEB1D18A40000602E33;
-			remoteInfo = RCTMultipleImagePicker;
-		};
 		C3863F7B22EB664100302F44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3863F7522EB664100302F44 /* TZImagePickerController.xcodeproj */;
@@ -460,7 +450,6 @@
 		00E356EE1AD99517003FC87E /* EllmoeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EllmoeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* EllmoeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EllmoeTests.m; sourceTree = "<group>"; };
-		130BE4C2168A4D5B863DC2C3 /* RCTMultipleImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTMultipleImagePicker.xcodeproj; path = "../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Ellmoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ellmoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -476,7 +465,6 @@
 		2D02E47B1E0B4A5D006451C7 /* Ellmoe-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ellmoe-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Ellmoe-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ellmoe-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		38995C36691B4F49B5DFE49C /* libRCTMultipleImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTMultipleImagePicker.a; sourceTree = "<group>"; };
 		3B0A95111B244BFAA0B3C72F /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		57329CAD3FC74BD289E3917C /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		599A1087F9C545123EFD61BE /* libPods-Ellmoe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Ellmoe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -583,7 +571,6 @@
 				C3261FFE22F1F1BA0033040F /* libdouble-conversion.a in Frameworks */,
 				C3863F7D22EB667900302F44 /* TZImagePickerController.framework in Frameworks */,
 				C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */,
-				C3863F7422EB65CA00302F44 /* libRCTMultipleImagePicker.a in Frameworks */,
 				C3863F7E22EB668600302F44 /* TZImagePickerController.framework in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -852,7 +839,6 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				8C34C759D8274A5CB8F8E751 /* RNFirebase.xcodeproj */,
-				130BE4C2168A4D5B863DC2C3 /* RCTMultipleImagePicker.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -976,14 +962,6 @@
 			children = (
 				C352853122E3A684009B3171 /* libRNGestureHandler.a */,
 				C352853322E3A684009B3171 /* libRNGestureHandler-tvOS.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C3863F3122EB64D800302F44 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3863F3522EB64D800302F44 /* libRCTMultipleImagePicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1162,10 +1140,6 @@
 				{
 					ProductGroup = 78C398B11ACF4ADC00677621 /* Products */;
 					ProjectRef = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
-				},
-				{
-					ProductGroup = C3863F3122EB64D800302F44 /* Products */;
-					ProjectRef = 130BE4C2168A4D5B863DC2C3 /* RCTMultipleImagePicker.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302D41ABCB9D200DB3ED1 /* Products */;
@@ -1506,13 +1480,6 @@
 			remoteRef = C352853222E3A684009B3171 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C3863F3522EB64D800302F44 /* libRCTMultipleImagePicker.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRCTMultipleImagePicker.a;
-			remoteRef = C3863F3422EB64D800302F44 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		C3863F7C22EB664100302F44 /* TZImagePickerController.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1796,15 +1763,12 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = EllmoeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1825,15 +1789,12 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = EllmoeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1870,7 +1831,6 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = Ellmoe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1916,7 +1876,6 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/AirMaps/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = Ellmoe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1954,14 +1913,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1991,14 +1947,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2027,14 +1980,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2063,14 +2013,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
-					"$(SRCROOT)/../node_modules/react-native-multiple-image-picker/ios/RCTMultipleImagePicker/**",
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

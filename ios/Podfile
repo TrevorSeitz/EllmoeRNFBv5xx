@@ -9,16 +9,16 @@ target 'Ellmoe' do
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'CxxBridge',
-    'DevSupport',
-    'RCTActionSheet',
-    'RCTAnimation',
-    'RCTGeolocation',
+    # 'DevSupport',
+    # 'RCTActionSheet',
+    # 'RCTAnimation',
+    # 'RCTGeolocation',
     'RCTImage',
-    'RCTLinkingIOS',
-    'RCTNetwork',
-    'RCTSettings',
-    'RCTText',
-    'RCTVibration',
+    # 'RCTLinkingIOS',
+    # 'RCTNetwork',
+    # 'RCTSettings',
+    # 'RCTText',
+    # 'RCTVibration',
     'RCTWebSocket',
   ]
   pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
@@ -59,7 +59,7 @@ target 'Ellmoe' do
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
-  pod 'react-native-cameraroll', :path => '../node_modules/@react-native-community/cameraroll'
+  # pod 'react-native-cameraroll', :path => '../node_modules/@react-native-community/cameraroll'
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
