@@ -83,7 +83,10 @@
 		C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C352853122E3A684009B3171 /* libRNGestureHandler.a */; };
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 		C3827CA822F1D11D008B87D0 /* libBoringSSL-GRPC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */; };
@@ -586,9 +589,13 @@
 			files = (
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				C3261FFD22F1F1BA0033040F /* libBoringSSL-GRPC.a in Frameworks */,
 				C326200222F1F4040033040F /* libDoubleConversion.a in Frameworks */,
 				C3261FFE22F1F1BA0033040F /* libdouble-conversion.a in Frameworks */,
+=======
+				C3827CA822F1D11D008B87D0 /* libBoringSSL-GRPC.a in Frameworks */,
+>>>>>>> Stashed changes
 =======
 				C3827CA822F1D11D008B87D0 /* libBoringSSL-GRPC.a in Frameworks */,
 >>>>>>> Stashed changes
@@ -817,9 +824,13 @@
 			children = (
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */,
 				C326200122F1F4040033040F /* libDoubleConversion.a */,
 				C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */,
+=======
+				C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */,
+>>>>>>> Stashed changes
 =======
 				C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */,
 >>>>>>> Stashed changes
@@ -1894,7 +1905,10 @@
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC",
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator",
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -1945,7 +1959,10 @@
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC",
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 					"$(PROJECT_DIR)/build/Ellmoe/Build/Products/Debug-iphonesimulator",
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
