@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -50,9 +51,6 @@
 		9A81893103E449D5B1F320D8 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D78BC0899B3C49FD868A048A /* EvilIcons.ttf */; };
 		A351FA149D734FFD9E666F29 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 868442EF40E640309317FF7E /* MaterialCommunityIcons.ttf */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		C3261FFD22F1F1BA0033040F /* libBoringSSL-GRPC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */; };
-		C3261FFE22F1F1BA0033040F /* libdouble-conversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */; };
-		C326200222F1F4040033040F /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C326200122F1F4040033040F /* libDoubleConversion.a */; };
 		C348685222DA6FFF00697D26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C348685122DA6FFF00697D26 /* GoogleService-Info.plist */; };
 		C3527F0C22DFB714009B3171 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3527F0B22DFB714009B3171 /* MapKit.framework */; };
 		C352837B22E22256009B3171 /* AIRDummyView.m in Sources */ = {isa = PBXBuildFile; fileRef = C352834922E22256009B3171 /* AIRDummyView.m */; };
@@ -81,13 +79,11 @@
 		C352839222E22256009B3171 /* AIRGMSMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837922E22256009B3171 /* AIRGMSMarker.m */; };
 		C352839322E22256009B3171 /* AIRGoogleMapCalloutSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = C352837A22E22256009B3171 /* AIRGoogleMapCalloutSubview.m */; };
 		C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C352853122E3A684009B3171 /* libRNGestureHandler.a */; };
-		C3827CA822F1D11D008B87D0 /* libBoringSSL-GRPC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */; };
-		C3863F7422EB65CA00302F44 /* libRCTMultipleImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F3522EB64D800302F44 /* libRCTMultipleImagePicker.a */; };
 		C3863F7D22EB667900302F44 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; };
 		C3863F7E22EB668600302F44 /* TZImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; };
 		C3863F7F22EB668600302F44 /* TZImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C3863F7C22EB664100302F44 /* TZImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C3C2E3CC22EF33CE00B9BF5C /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C2E3C922EF339700B9BF5C /* libRNImagePicker.a */; };
 		C3D3E86422E63886008146CB /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3D3E86322E63886008146CB /* Images-2.xcassets */; };
+		C3D4460422F8C1AB00B69A4C /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3D4460122F8C18900B69A4C /* libRNImagePicker.a */; };
 		C999F3D105A241CB9910E48E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 96BDB841E05C4E0F86613381 /* MaterialIcons.ttf */; };
 		CAF842E7424343C7AC21B0EC /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5F189ED1891641C3A8014653 /* FontAwesome.ttf */; };
 		CE8B281FBCAD4DE79DEAB65E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 902904E2E0E346B08B5294CF /* Ionicons.ttf */; };
@@ -420,19 +416,19 @@
 			remoteGlobalIDString = 9F763A411FA071CF00D9E526;
 			remoteInfo = TZImagePickerControllerFramework;
 		};
-		C3C2E3C822EF339700B9BF5C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3C2E39922EF339700B9BF5C /* RNImagePicker.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
-			remoteInfo = RNImagePicker;
-		};
 		C3D3E96122E8D697008146CB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3D3E93722E8D696008146CB /* RNCCameraRoll.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 58B5115D1A9E6B3D00147676;
 			remoteInfo = RNCCameraRoll;
+		};
+		C3D4460022F8C18900B69A4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3D445D322F8C18900B69A4C /* RNImagePicker.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 014A3B5C1C6CF33500B6D375;
+			remoteInfo = RNImagePicker;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -554,9 +550,9 @@
 		C352850422E3A682009B3171 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libBoringSSL-GRPC.a"; path = "build/Ellmoe/Build/Products/Debug-iphonesimulator/BoringSSL-GRPC/libBoringSSL-GRPC.a"; sourceTree = "<group>"; };
 		C3863F7522EB664100302F44 /* TZImagePickerController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TZImagePickerController.xcodeproj; path = "../node_modules/react-native-multiple-image-picker/ios/TZImagePickerController/TZImagePickerController.xcodeproj"; sourceTree = "<group>"; };
-		C3C2E39922EF339700B9BF5C /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		C3D3E86322E63886008146CB /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "Ellmoe/Images-2.xcassets"; sourceTree = "<group>"; };
 		C3D3E93722E8D696008146CB /* RNCCameraRoll.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCCameraRoll.xcodeproj; path = "../node_modules/@react-native-community/cameraroll/ios/RNCCameraRoll.xcodeproj"; sourceTree = "<group>"; };
+		C3D445D322F8C18900B69A4C /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../../EllmoeApp/node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		C97DD56AE46E45398AF70E2E /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		D78BC0899B3C49FD868A048A /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		D8E13BB553BB18534EEFFDDE /* Pods-Ellmoe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ellmoe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ellmoe/Pods-Ellmoe.debug.xcconfig"; sourceTree = "<group>"; };
@@ -578,7 +574,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3C2E3CC22EF33CE00B9BF5C /* libRNImagePicker.a in Frameworks */,
+				C3D4460422F8C1AB00B69A4C /* libRNImagePicker.a in Frameworks */,
 				C3863F7D22EB667900302F44 /* TZImagePickerController.framework in Frameworks */,
 				C352853422E3A724009B3171 /* libRNGestureHandler.a in Frameworks */,
 				C3863F7E22EB668600302F44 /* TZImagePickerController.framework in Frameworks */,
@@ -598,7 +594,6 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				66F583A38C047519D1E18159 /* libPods-Ellmoe.a in Frameworks */,
 				8AEB10120B9847F8905B7DA1 /* libRNFirebase.a in Frameworks */,
-				C23059B0455A4532BCB08237 /* libRCTMultipleImagePicker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -783,7 +778,6 @@
 			isa = PBXGroup;
 			children = (
 				C97DD56AE46E45398AF70E2E /* libRNFirebase.a */,
-				38995C36691B4F49B5DFE49C /* libRCTMultipleImagePicker.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -802,7 +796,6 @@
 				C3261FCE22F1F1BA0033040F /* libBoringSSL-GRPC.a */,
 				C326200122F1F4040033040F /* libDoubleConversion.a */,
 				C3261FFC22F1F1BA0033040F /* libdouble-conversion.a */,
-				C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */,
 				C3827C7A22F1D11D008B87D0 /* libBoringSSL-GRPC.a */,
 				C3863F7522EB664100302F44 /* TZImagePickerController.xcodeproj */,
 				C3527F0B22DFB714009B3171 /* MapKit.framework */,
@@ -835,7 +828,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				C3C2E39922EF339700B9BF5C /* RNImagePicker.xcodeproj */,
+				C3D445D322F8C18900B69A4C /* RNImagePicker.xcodeproj */,
 				C3D3E93722E8D696008146CB /* RNCCameraRoll.xcodeproj */,
 				C352850422E3A682009B3171 /* RNGestureHandler.xcodeproj */,
 				C352831B22E221AB009B3171 /* AirMaps.xcodeproj */,
@@ -987,26 +980,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C3C2E39A22EF339700B9BF5C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3C2E3C922EF339700B9BF5C /* libRNImagePicker.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		C3C2E39A22EF339700B9BF5C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C3C2E3C922EF339700B9BF5C /* libRNImagePicker.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		C3D3E93822E8D696008146CB /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				C3D3E96222E8D697008146CB /* libRNCCameraRoll.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3D445D422F8C18900B69A4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3D4460122F8C18900B69A4C /* libRNImagePicker.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1207,8 +1192,8 @@
 					ProjectRef = C352850422E3A682009B3171 /* RNGestureHandler.xcodeproj */;
 				},
 				{
-					ProductGroup = C3C2E39A22EF339700B9BF5C /* Products */;
-					ProjectRef = C3C2E39922EF339700B9BF5C /* RNImagePicker.xcodeproj */;
+					ProductGroup = C3D445D422F8C18900B69A4C /* Products */;
+					ProjectRef = C3D445D322F8C18900B69A4C /* RNImagePicker.xcodeproj */;
 				},
 				{
 					ProductGroup = C3863F7622EB664100302F44 /* Products */;
@@ -1520,18 +1505,18 @@
 			remoteRef = C3863F7B22EB664100302F44 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		C3C2E3C922EF339700B9BF5C /* libRNImagePicker.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNImagePicker.a;
-			remoteRef = C3C2E3C822EF339700B9BF5C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		C3D3E96222E8D697008146CB /* libRNCCameraRoll.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNCCameraRoll.a;
 			remoteRef = C3D3E96122E8D697008146CB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C3D4460122F8C18900B69A4C /* libRNImagePicker.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNImagePicker.a;
+			remoteRef = C3D4460022F8C18900B69A4C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1807,9 +1792,7 @@
 				INFOPLIST_FILE = EllmoeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1833,9 +1816,7 @@
 				INFOPLIST_FILE = EllmoeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1956,9 +1937,7 @@
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1990,9 +1969,7 @@
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -2023,9 +2000,7 @@
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -2056,9 +2031,7 @@
 				);
 				INFOPLIST_FILE = "Ellmoe-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
