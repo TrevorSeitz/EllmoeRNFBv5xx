@@ -129,6 +129,11 @@ PODS:
   - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
+    - Folly/Default (= 2018.10.22.00)
+    - glog
+  - Folly/Default (2018.10.22.00):
+    - boost-for-react-native
+    - DoubleConversion
     - glog
   - glog (0.3.5)
   - GoogleAppMeasurement (6.0.2):
@@ -333,8 +338,8 @@ SPEC CHECKSUMS:
   FirebasePerformance: 1cf814c294cb0f6e0d36cde0760d09835b13c9ce
   FirebaseRemoteConfig: 7c64ecec5ca63d7c6b304509c3a6f9a036d403d4
   FirebaseStorage: 926d41552072b9fee67aa645760f05f87b7ce604
-  Folly: de497beb10f102453a1afa9edbf8cf8a251890de
-  glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
+  Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
+  glog: 1f3da668190260b06b429bb211bfbee5cd790c28
   GoogleAppMeasurement: a35a645835bae31b6bdc0576396bc23908f12a22
   GoogleMaps: cfee83da305b9aaeccf92c24ac79df11c3003492
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
